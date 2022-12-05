@@ -5,7 +5,7 @@ Project Full Stack
 
 Authors: @Jenny-Campo https://https://github.com/Jenny-Campo     @AlbertoMG91 https://https://github.com/AlbertoMG91
 
-ENDPOINTS:
+### ENDPOINTS:
 
 ### ANONYMOUS USER
 
@@ -24,7 +24,6 @@ POST   | /auth/signup                | -     | user | User Signup           | `n
 POST   | /auth/login                 | -     | user | Login                 | `email`, `password`                           | {msg: string, token: token }
 **GET  | /auth/logout                | YES   | user | Logout                |                                               | {msg: string}
 **GET  | /auth/logOff                | YES   | user | LogOff                |                                               | {msg: string}
-
 POST   | /auth/signup                | YES   | ADMIN| Create an user Signup | `name`, `age`, `email`, `password` VARIAS PREGUNTAS*| {msg: string, token: token }
 POST   | /auth/login                 | YES   | ADMIN| Login                 | `name`, `age`, `email`, `password`            | {msg: string, token: token }
 **GET  | /auth/logout                | YES   | ADMIN| Logout                |                                               | {msg: string}
