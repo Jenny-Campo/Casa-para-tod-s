@@ -14,7 +14,7 @@ METHOD | ENDPOINT                    | TOKEN | ROLE           | DESCRIPTION     
 -------|-----------------------------|-------|----------------|---------------------------|-----------------------------------------------|--------------------
 GET    | /appUseInfo                 | -     | Anonymous user | See app use information   |                                               | { msg: string }
 GET    | /houseShareAds              | -     | Anonymous user | See all shared house ads  | query params ??                               | [{shared houses Ads}]
-GET    | /houseShareAd/:houseId      | -     | Anonymous user | See one share house ad    | id                                            | {share house ad}
+GET    | /houseShareAd/:houseId      | -     | Anonymous user | See one shared house ad   | id                                            | {share house ad}
 GET    | /ownerProfile/:ownerId      | -     | Anonymous user | (in the ad) See the owner profile | id                                    | {owner profile}
 
 ### AUTH Signup/Login
