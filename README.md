@@ -4,8 +4,7 @@ Home sharing app (BACKEND)
 
 Project Full Stack
 
-Authors: ----->  @Jenny-Campo https://https://github.com/Jenny-Campo    
-         ----->  @AlbertoMG91 https://https://github.com/AlbertoMG91
+Authors:  @Jenny-Campo https://https://github.com/Jenny-Campo    &&    @AlbertoMG91 https://https://github.com/AlbertoMG91
 
 ### ENDPOINTS:
 
