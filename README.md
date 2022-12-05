@@ -1,2 +1,2 @@
-# Casa-para-todos
+# Casa-para-tod@s
  Home sharing app
