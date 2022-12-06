@@ -1,4 +1,3 @@
-![](https://github.com/Jenny-Campo/Casa-para-todos/commit/472786918e6ede1d48793c790cf9ae273f9d24f3#r92078339)
 ### CASA PARA TOD@S
 
 Home sharing app (BACKEND)
@@ -20,6 +19,7 @@ GET    | /ownerProfile/:ownerId      | -     | Anonymous user | (in the ad) See 
 
 ### AUTH Signup/Login
 
+<<<<<<< HEAD
 METHOD | ENDPOINT                    | TOKEN | ROLE | DESCRIPTION           | POST PARAMS                                   | RETURNS
 -------|-----------------------------|-------|------|-----------------------|-----------------------------------------------|--------------------
 POST   | /auth/signup                | -     | user | User Signup           | Name, age, direcction, location, phoneNumber, email, password, role| {msg: string, token: token }
@@ -30,6 +30,18 @@ POST   | /auth/signup                | YES   | ADMIN| Create an user Signup | Na
 POST   | /auth/login                 | YES   | ADMIN| Login                 | email, password            | {msg: string, token: token }
 GET**  | /auth/logout                | YES   | ADMIN| Logout                |                                               | {msg: string}
 GET**  | /auth/logOff                | YES   | ADMIN| LogOff                |                                               | {msg: string}
+=======
+METHOD | ENDPOINT               | TOKEN | ROLE | DESCRIPTION           | POST PARAMS                                   | RETURNS
+-------|------------------------|-------|------|-----------------------|-----------------------------------------------|--------------------
+POST   | /signup                | -     | user | User Signup           | Name, age, direcction, location, phoneNumber, email, password| {msg: string, token: token }
+POST   | /login                 | -     | user | Login                 | email, password                           | {msg: string, token: token }
+GET**  | /logout                | YES   | user | Logout                |                                               | {msg: string}
+GET**  | /logOff                | YES   | user | LogOff                |                                               | {msg: string}
+POST   | /signup                | YES   | ADMIN| Create an user Signup | Name, age, direcction, location, phoneNumber, email, password| {msg: string, token: token }
+POST   | /login                 | YES   | ADMIN| Login                 | email, password            | {msg: string, token: token }
+GET**  | /logout                | YES   | ADMIN| Logout                |                                               | {msg: string}
+GET**  | /logOff                | YES   | ADMIN| LogOff                |                                               | {msg: string}
+>>>>>>> acf0ed18526c106fb18e4a948d4069fb0df063ce
 
 
 ### User
@@ -37,7 +49,11 @@ GET**  | /auth/logOff                | YES   | ADMIN| LogOff                |   
 METHOD | ENDPOINT                    | TOKEN | ROLE   | DESCRIPTION           | POST PARAMS                                  | RETURNS
 -------|-----------------------------|-------|--------|-----------------------|----------------------------------------------|--------------------
 GET    | /user/profile               | YES   | user   | see own profile       | id                                           | {own profile}
+<<<<<<< HEAD
 PUT    | /user/profile               | YES   | user   | update own profile    | Name, age, direcction, location, phoneNumber, email, password, role                          | {own profile}
+=======
+PUT    | /user/profile               | YES   | user   | update own profile    | Name, age, direcction, location, phoneNumber, email, password                          | {own profile}
+>>>>>>> acf0ed18526c106fb18e4a948d4069fb0df063ce
 DELETE | /user/profile               | YES   | user   | delete own profile    |                                              | { msg: string }
 
 
@@ -74,6 +90,9 @@ DELETE | /ad/:adId                   | YES   | ADMIN  | Delete one ad         | 
 
 
 GET** = we are not sure we can get this endpoint into the first version
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> acf0ed18526c106fb18e4a948d4069fb0df063ce
