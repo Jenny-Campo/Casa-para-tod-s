@@ -22,12 +22,12 @@ GET    | /ownerProfile/:ownerId      | -     | Anonymous user | (in the ad) See 
 
 METHOD | ENDPOINT                    | TOKEN | ROLE | DESCRIPTION           | POST PARAMS                                   | RETURNS
 -------|-----------------------------|-------|------|-----------------------|-----------------------------------------------|--------------------
-POST   | /auth/signup                | -     | user | User Signup           | `name`, `age`, `email`, `password` Many questions*| {msg: string, token: token }
-POST   | /auth/login                 | -     | user | Login                 | `email`, `password`                           | {msg: string, token: token }
+POST   | /auth/signup                | -     | user | User Signup           | Name, age, direcction, location, phoneNumber, email, password, role| {msg: string, token: token }
+POST   | /auth/login                 | -     | user | Login                 | email, password                           | {msg: string, token: token }
 GET**  | /auth/logout                | YES   | user | Logout                |                                               | {msg: string}
 GET**  | /auth/logOff                | YES   | user | LogOff                |                                               | {msg: string}
-POST   | /auth/signup                | YES   | ADMIN| Create an user Signup | `name`, `age`, `email`, `password` Many questions*| {msg: string, token: token }
-POST   | /auth/login                 | YES   | ADMIN| Login                 | `name`, `age`, `email`, `password`            | {msg: string, token: token }
+POST   | /auth/signup                | YES   | ADMIN| Create an user Signup | Name, age, direcction, location, phoneNumber, email, password, role| {msg: string, token: token }
+POST   | /auth/login                 | YES   | ADMIN| Login                 | email, password            | {msg: string, token: token }
 GET**  | /auth/logout                | YES   | ADMIN| Logout                |                                               | {msg: string}
 GET**  | /auth/logOff                | YES   | ADMIN| LogOff                |                                               | {msg: string}
 
@@ -67,14 +67,13 @@ PUT    | /profile/:profileId         | YES   | ADMIN  | update one profile    | 
 DELETE | /profile/:profileId         | YES   | ADMIN  | delete one profile    | id                                           | { msg: string }
 GET    | /ads                        | YES   | ADMIN  | See all ads           |                                              | {ads}
 GET    | /ad/:adId                   | YES   | ADMIN  | See one ad            |                                              | {ad}
-POST   | /ad                         | YES   | ADMIN  | Create one ad         | Many questions*                            | { msg: string }
-PUT    | /ad/:adId                   | YES   | ADMIN  | Update one ad         | Many questions*                            | {ad}
+POST   | /ad                         | YES   | ADMIN  | Create one ad         | visibleAddress, houseType, totalRooms, totalWc, houseState, direcction, visibleDirecction, location, rentalPrice, desciption                            | { msg: string }
+PUT    | /ad/:adId                   | YES   | ADMIN  | Update one ad         | visibleAddress, houseType, totalRooms, totalWc, houseState, direcction, visibleDirecction, location, rentalPrice, desciption                            | {ad}
 DELETE | /ad/:adId                   | YES   | ADMIN  | Delete one ad         |                                              | { msg: string }
 
 
 
 GET** = we are not sure we can get this endpoint into the first version
 
-Many questions* = the list of questions is too long to put it here
 
 
