@@ -37,8 +37,25 @@ GET**  | /auth/logOff                | YES   | ADMIN| LogOff                |   
 METHOD | ENDPOINT                    | TOKEN | ROLE   | DESCRIPTION           | POST PARAMS                                  | RETURNS
 -------|-----------------------------|-------|--------|-----------------------|----------------------------------------------|--------------------
 GET    | /user/profile               | YES   | user   | see own profile       | id                                           | {own profile}
-PUT    | /user/profile               | YES   | user   | update own profile    | Many questions*                            | {own profile}
+PUT    | /user/profile               | YES   | user   | update own profile    | Name, age, direcction, location, phoneNumber, email, password, role                          | {own profile}
 DELETE | /user/profile               | YES   | user   | delete own profile    |                                              | { msg: string }
+
+
+### HouseAd
+
+METHOD | ENDPOINT                    | TOKEN | ROLE   | DESCRIPTION           | POST PARAMS                                  | RETURNS
+-------|-----------------------------|-------|--------|-----------------------|----------------------------------------------|--------------------
+POST   | /user/ad                    | YES   | user   | Create own ad for share own home | visibleAddress, houseType, totalRooms, totalWc, houseState, direcction, visibleDirecction, location, rentalPrice, desciption   | { msg: string }
+GET    | /user/ad                    | YES   | user   | See own ad            |                                              | {own ad}
+PUT    | /user/ad                    | YES   | user   | Update own ad         | visibleAddress, houseType, totalRooms, totalWc, houseState, direcction, visibleDirecction, location, rentalPrice, desciption    | {own ad}
+DELETE | /user/ad                    | YES   | user   | Delete own ad         |                                              | { msg: string }
+
+
+### Province
+
+METHOD | ENDPOINT                    | TOKEN | ROLE   | DESCRIPTION           | POST PARAMS                                  | RETURNS
+-------|-----------------------------|-------|--------|-----------------------|----------------------------------------------|--------------------
+
 
 ### ADMIN
 
@@ -54,14 +71,7 @@ POST   | /ad                         | YES   | ADMIN  | Create one ad         | 
 PUT    | /ad/:adId                   | YES   | ADMIN  | Update one ad         | Many questions*                            | {ad}
 DELETE | /ad/:adId                   | YES   | ADMIN  | Delete one ad         |                                              | { msg: string }
 
-### HouseAd
 
-METHOD | ENDPOINT                    | TOKEN | ROLE   | DESCRIPTION           | POST PARAMS                                  | RETURNS
--------|-----------------------------|-------|--------|-----------------------|----------------------------------------------|--------------------
-POST   | /user/ad                    | YES   | user   | Create own ad for share own home | visibleAddress, houseType, totalRooms, totalWc, houseState, direcction, visibleDirecction, location, rentalPrice, desciption   | { msg: string }
-GET    | /user/ad                    | YES   | user   | See own ad            |                                              | {own ad}
-PUT    | /user/ad                    | YES   | user   | Update own ad         |  Many questions*                           | {own ad}
-DELETE | /user/ad                    | YES   | user   | Delete own ad         |                                              | { msg: string }
 
 GET** = we are not sure we can get this endpoint into the first version
 
