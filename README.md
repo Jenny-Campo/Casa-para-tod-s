@@ -66,7 +66,7 @@ GET    | /profile/:profileId         | YES   | ADMIN  | see one profile       | 
 PUT    | /profile/:profileId         | YES   | ADMIN  | update one profile    | id                                           | {profile}
 DELETE | /profile/:profileId         | YES   | ADMIN  | delete one profile    | id                                           | { msg: string }
 GET    | /ads                        | YES   | ADMIN  | See all ads           |                                              | {ads}
-GET    | /ad/:adId                   | YES   | ADMIN  | See one ad            |                                              | {ad}
+GET    | /ad/:adId                   | YES   | ADMIN  | See one ad            | id                                            | {ad}
 POST   | /ad                         | YES   | ADMIN  | Create one ad         | visibleAddress, houseType, totalRooms, totalWc, houseState, direcction, visibleDirecction, location, rentalPrice, desciption                            | { msg: string }
 PUT    | /ad/:adId                   | YES   | ADMIN  | Update one ad         | visibleAddress, houseType, totalRooms, totalWc, houseState, direcction, visibleDirecction, location, rentalPrice, desciption                            | {ad}
 DELETE | /ad/:adId                   | YES   | ADMIN  | Delete one ad         |                                              | { msg: string }
