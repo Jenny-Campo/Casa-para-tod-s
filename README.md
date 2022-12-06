@@ -19,16 +19,17 @@ GET    | /ownerProfile/:ownerId      | -     | Anonymous user | (in the ad) See 
 
 ### AUTH Signup/Login
 
-METHOD | ENDPOINT               | TOKEN | ROLE | DESCRIPTION           | POST PARAMS                                   | RETURNS
--------|------------------------|-------|------|-----------------------|-----------------------------------------------|--------------------
-POST   | /signup                | -     | user | User Signup           | Name, age, direcction, location, phoneNumber, email, password| {msg: string, token: token }
-POST   | /login                 | -     | user | Login                 | email, password                           | {msg: string, token: token }
-GET**  | /logout                | YES   | user | Logout                |                                               | {msg: string}
-GET**  | /logOff                | YES   | user | LogOff                |                                               | {msg: string}
-POST   | /signup                | YES   | ADMIN| Create an user Signup | Name, age, direcction, location, phoneNumber, email, password| {msg: string, token: token }
-POST   | /login                 | YES   | ADMIN| Login                 | email, password            | {msg: string, token: token }
-GET**  | /logout                | YES   | ADMIN| Logout                |                                               | {msg: string}
-GET**  | /logOff                | YES   | ADMIN| LogOff                |                                               | {msg: string}
+
+METHOD | ENDPOINT                    | TOKEN | ROLE | DESCRIPTION           | POST PARAMS                                   | RETURNS
+-------|-----------------------------|-------|------|-----------------------|-----------------------------------------------|--------------------
+POST   | /auth/signup                | -     | user | User Signup           | Name, age, direcction, location, phoneNumber, email, password, role| {msg: string, token: token }
+POST   | /auth/login                 | -     | user | Login                 | email, password                           | {msg: string, token: token }
+GET**  | /auth/logout                | YES   | user | Logout                |                                               | {msg: string}
+GET**  | /auth/logOff                | YES   | user | LogOff                |                                               | {msg: string}
+POST   | /auth/signup                | YES   | ADMIN| Create an user Signup | Name, age, direcction, location, phoneNumber, email, password, role| {msg: string, token: token }
+POST   | /auth/login                 | YES   | ADMIN| Login                 | email, password            | {msg: string, token: token }
+GET**  | /auth/logout                | YES   | ADMIN| Logout                |                                               | {msg: string}
+GET**  | /auth/logOff                | YES   | ADMIN| LogOff                |                                               | {msg: string}
 
 
 ### User
@@ -36,6 +37,7 @@ GET**  | /logOff                | YES   | ADMIN| LogOff                |        
 METHOD | ENDPOINT                    | TOKEN | ROLE   | DESCRIPTION           | POST PARAMS                                  | RETURNS
 -------|-----------------------------|-------|--------|-----------------------|----------------------------------------------|--------------------
 GET    | /user/profile               | YES   | user   | see own profile       | id                                           | {own profile}
+PUT    | /user/profile               | YES   | user   | update own profile    | Name, age, direcction, location, phoneNumber, email, password, role                          | {own profile}
 PUT    | /user/profile               | YES   | user   | update own profile    | Name, age, direcction, location, phoneNumber, email, password                          | {own profile}
 DELETE | /user/profile               | YES   | user   | delete own profile    |                                              | { msg: string }
 
@@ -54,6 +56,7 @@ DELETE | /user/ad                    | YES   | user   | Delete own ad         | 
 
 METHOD | ENDPOINT                    | TOKEN | ROLE   | DESCRIPTION           | POST PARAMS                                  | RETURNS
 -------|-----------------------------|-------|--------|-----------------------|----------------------------------------------|--------------------
+POST   | /province                   | YES   | user   | Create one province   | provinceName                                 | { msg: string }
 
 
 ### ADMIN
@@ -73,3 +76,4 @@ DELETE | /ad/:adId                   | YES   | ADMIN  | Delete one ad         | 
 
 
 GET** = we are not sure we can get this endpoint into the first version
+
