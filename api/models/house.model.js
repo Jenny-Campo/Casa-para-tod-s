@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize')
-const { sequelize } = require('../../database/indexDatabase')
+const { sequelize } = require('../../database/index')
 
 const HouseAd = sequelize.define(
   'houseAd',
@@ -9,7 +9,8 @@ const HouseAd = sequelize.define(
       allowNull: false,
     },
     houseType: {
-      type: DataTypes.ENUM('Piso', 'Casa'),
+      type: DataTypes.STRING,
+      //type: DataTypes.ENUM('Piso', 'Casa'),
       allowNull: false
     },
     totalRooms: {
@@ -21,7 +22,8 @@ const HouseAd = sequelize.define(
         allowNull: false
     },
     houseState: {
-        type: DataTypes.ENUM('Casi nuevo', 'Muy bueno', 'Bien', 'A reformar', 'Reformada'),
+      type: DataTypes.STRING,
+        //type: DataTypes.ENUM('Casi nuevo', 'Muy bueno', 'Bien', 'A reformar', 'Reformada'),
         allowNull: false
     },
     direcction: {
