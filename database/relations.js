@@ -1,5 +1,5 @@
-const User = require('../api/models/userModels')
-const HouseAd = require('../api/models/houseAdModels')
+const User = require('../api/models/user.model')
+const HouseAd = require('../api/models/house.model')
 
 function addRelationsModels() {
     try {

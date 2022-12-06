@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize')
-const { sequelize } = require('../../database/indexDatabase')
+const { sequelize } = require('../../database/index')
 
 const User = sequelize.define(
   'user',
@@ -40,7 +40,8 @@ const User = sequelize.define(
       allowNull: false
     },
     role: {
-      type: DataTypes.ENUM('user', 'admin'),
+      type: DataTypes.STRING,
+      //type: DataTypes.ENUM(['user', 'admin']),
       defaultValue: 'user'
     }
   },
