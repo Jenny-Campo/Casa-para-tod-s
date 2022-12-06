@@ -55,6 +55,7 @@ DELETE | /user/ad                    | YES   | user   | Delete own ad         | 
 
 METHOD | ENDPOINT                    | TOKEN | ROLE   | DESCRIPTION           | POST PARAMS                                  | RETURNS
 -------|-----------------------------|-------|--------|-----------------------|----------------------------------------------|--------------------
+POST   | /province                   | YES   | user   | Create one province   | provinceName                                 | { msg: string }
 
 
 ### ADMIN
