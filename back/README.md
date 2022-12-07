@@ -20,6 +20,10 @@ GET    | /ownerProfile/:ownerId      | -     | Anonymous user | (in the ad) See 
 ### AUTH Signup/Login
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8a48808444e2c40d29feda5f14b9ea7ede0d0909
 METHOD | ENDPOINT                    | TOKEN | ROLE | DESCRIPTION           | POST PARAMS                                   | RETURNS
 -------|-----------------------------|-------|------|-----------------------|-----------------------------------------------|--------------------
 POST   | /auth/signup                | -     | user | User Signup           | Name, age, direcction, location, phoneNumber, email, password, role| {msg: string, token: token }
@@ -30,6 +34,7 @@ POST   | /auth/signup                | YES   | ADMIN| Create an user Signup | Na
 POST   | /auth/login                 | YES   | ADMIN| Login                 | email, password            | {msg: string, token: token }
 GET**  | /auth/logout                | YES   | ADMIN| Logout                |                                               | {msg: string}
 GET**  | /auth/logOff                | YES   | ADMIN| LogOff                |                                               | {msg: string}
+<<<<<<< HEAD
 =======
 METHOD | ENDPOINT               | TOKEN | ROLE | DESCRIPTION           | POST PARAMS                                   | RETURNS
 -------|------------------------|-------|------|-----------------------|-----------------------------------------------|--------------------
@@ -42,6 +47,8 @@ POST   | /login                 | YES   | ADMIN| Login                 | email, 
 GET**  | /logout                | YES   | ADMIN| Logout                |                                               | {msg: string}
 GET**  | /logOff                | YES   | ADMIN| LogOff                |                                               | {msg: string}
 >>>>>>> acf0ed18526c106fb18e4a948d4069fb0df063ce
+=======
+>>>>>>> 8a48808444e2c40d29feda5f14b9ea7ede0d0909
 
 
 ### User
@@ -50,10 +57,15 @@ METHOD | ENDPOINT                    | TOKEN | ROLE   | DESCRIPTION           | 
 -------|-----------------------------|-------|--------|-----------------------|----------------------------------------------|--------------------
 GET    | /user/profile               | YES   | user   | see own profile       | id                                           | {own profile}
 <<<<<<< HEAD
+<<<<<<< HEAD
 PUT    | /user/profile               | YES   | user   | update own profile    | Name, age, direcction, location, phoneNumber, email, password, role                          | {own profile}
 =======
 PUT    | /user/profile               | YES   | user   | update own profile    | Name, age, direcction, location, phoneNumber, email, password                          | {own profile}
 >>>>>>> acf0ed18526c106fb18e4a948d4069fb0df063ce
+=======
+PUT    | /user/profile               | YES   | user   | update own profile    | Name, age, direcction, location, phoneNumber, email, password, role                          | {own profile}
+PUT    | /user/profile               | YES   | user   | update own profile    | Name, age, direcction, location, phoneNumber, email, password                          | {own profile}
+>>>>>>> 8a48808444e2c40d29feda5f14b9ea7ede0d0909
 DELETE | /user/profile               | YES   | user   | delete own profile    |                                              | { msg: string }
 
 
@@ -71,6 +83,7 @@ DELETE | /user/ad                    | YES   | user   | Delete own ad         | 
 
 METHOD | ENDPOINT                    | TOKEN | ROLE   | DESCRIPTION           | POST PARAMS                                  | RETURNS
 -------|-----------------------------|-------|--------|-----------------------|----------------------------------------------|--------------------
+POST   | /province                   | YES   | user   | Create one province   | provinceName                                 | { msg: string }
 
 
 ### ADMIN
@@ -91,8 +104,12 @@ DELETE | /ad/:adId                   | YES   | ADMIN  | Delete one ad         | 
 
 GET** = we are not sure we can get this endpoint into the first version
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 
 =======
 >>>>>>> acf0ed18526c106fb18e4a948d4069fb0df063ce
+=======
+
+>>>>>>> 8a48808444e2c40d29feda5f14b9ea7ede0d0909
