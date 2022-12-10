@@ -13,7 +13,7 @@ const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco 
   }
  })
 
-// pte. hacer el GRID en los nuttons y poner el el botón de inicia sesión, el link a la página:
+// pte. hacer el GRID en los buttons y poner el el botón de inicia sesión, el link a la página:
 
 function Header() {
   return (
@@ -58,7 +58,7 @@ function Header() {
 
           </Grid>
           </AppBar>
-          
+
         </Grid>
         </Grid>
       </Box> 
