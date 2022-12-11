@@ -8,7 +8,7 @@ const User = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false
     },
-    age: {
+    age: {                        //ojo, en front y figma tenemos fecha de nacimiento
         type: DataTypes.INTEGER,
         allowNull: false
     },

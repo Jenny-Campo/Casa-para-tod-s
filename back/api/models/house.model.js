@@ -4,10 +4,6 @@ const { sequelize } = require('../../database/index')
 const HouseAd = sequelize.define(
   'houseAd',
   {
-    visibleAddress: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-    },
     houseType: {
       type: DataTypes.STRING,
       //type: DataTypes.ENUM('Piso', 'Casa'),

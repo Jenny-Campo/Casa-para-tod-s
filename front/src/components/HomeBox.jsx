@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, ThemeProvider, createTheme } from '@mui/material';
+import { Box, ThemeProvider, createTheme, Container } from '@mui/material';
 
 
 const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco / dark=azul osc. /contrastText= amarillo)
@@ -12,7 +12,7 @@ const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco 
  })
 
 const background = {
-  height: 900,
+  height: 1500,
   backgroundColor: '#C9E4EB',
   margin: '0 auto',
 }
@@ -22,8 +22,11 @@ function HomeBox() {
   return (
     <ThemeProvider theme={theme}>
     <Box style={background}>
-      <div> prueba</div>
+    <Container fluid>
+      <div> pruebaew</div>  
+    </Container>
     </Box>
+   
     </ThemeProvider>
   )
 }
