@@ -22,6 +22,7 @@ function Footer() {
                 <Box  position={'static'} bottom={0} width='100%'>
                     <Box bgcolor='main' color='dark' padding={2}>
                         <Container fluid>
+                        <img src='public/Logo BG-MAIN - CASA PARA TODOS.png' alt='logo Casa para tod@s'></img>
                             <Grid container spacing={5} margin={5}>
                                 { links && links.map((section, idx) => {
                                 return (<Grid xs={12} key={idx}>
