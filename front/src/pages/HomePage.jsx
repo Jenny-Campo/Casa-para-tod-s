@@ -31,7 +31,7 @@ function Home() {
 
   return (
 
-    //OJOOOOOO, EN LAS PANTALLAS PEQUEÑAS HAY UN MARGEN A LA DRCHA. QUE NO PUEDO QUITAR!!! (en tantalla completa no sale)
+    //OJOOOOOO, EN LAS PANTALLAS PEQUEÑAS HAY UN MARGEN A LA DRCHA. QUE NO PUEDO QUITAR!!! (en pantalla completa no sale)
 
     <ThemeProvider theme={theme}>
     <Box id="Home" style={BACKGROUND}>

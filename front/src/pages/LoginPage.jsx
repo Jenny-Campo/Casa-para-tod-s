@@ -24,8 +24,6 @@ const BACKGROUND = {
 const CARD = {         //ojo, aquí no coge los nombres de los colores, solo los números
     width: '500px',
     margin: '20px auto', // 2 valores aplica ariba-abajo, y der.-izq.
-    display: 'flex',
-    justifyContent: 'center',
     backgroundColor: '#F1FAFC',  // en sx sería bgColor
 }
 
@@ -55,11 +53,11 @@ function LoginPage() {
 
   return (
 
-    //OJOOO, PTE. HACER LO DE LA CONTRASEÑA VISIBLE O NO, Y LO DE OLVIDÓ SU CONTRASEÑA (VIDEO MUI 1)
+    //OJOOO, PTE. HACER LO DE LA CONTRASEÑA VISIBLE O NO, Y LO DE OLVIDÓ SU CONTRASEÑA (VIDEO MUI 1), también que quede la card centrada
 
     <Box style={BACKGROUND}>
     <Grid container>
-    <Grid item xs={12} md={6}></Grid> {/* preguntar como podemos hacer para que cambien los tamaños de las cosas cuando se hace más pequeña la pantalla */}
+    <Grid item xs={12}> {/* preguntar como podemos hacer para que cambien los tamaños de las cosas cuando se hace más pequeña la pantalla */}
         <Card sx={CARD}>
             <CardContent>
                 <CardHeader title="Login" sx={{backgroundColor: '#004A94', color: '#F7F9A7', borderRadius: 1, marginBottom: '20px' }} />
@@ -72,6 +70,7 @@ function LoginPage() {
             </CardContent>
 
         </Card>
+        </Grid>
     </Grid>
     </Box>
   )
