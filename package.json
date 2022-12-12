@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/Jenny-Campo/Casa-para-todos.git"
   },
-  "author": "",
+  "author": "@Jenny-Campo, @AlbertoMG91",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Jenny-Campo/Casa-para-todos/issues"
@@ -19,6 +19,11 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.2",
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
     "pg": "^8.8.0",
     "sequelize": "^6.26.0"

@@ -1,4 +1,3 @@
-![](https://github.com/Jenny-Campo/Casa-para-todos/commit/472786918e6ede1d48793c790cf9ae273f9d24f3#r92078339)
 ### CASA PARA TOD@S
 
 Home sharing app (BACKEND)
@@ -20,6 +19,7 @@ GET    | /ownerProfile/:ownerId      | -     | Anonymous user | (in the ad) See 
 
 ### AUTH Signup/Login
 
+
 METHOD | ENDPOINT                    | TOKEN | ROLE | DESCRIPTION           | POST PARAMS                                   | RETURNS
 -------|-----------------------------|-------|------|-----------------------|-----------------------------------------------|--------------------
 POST   | /auth/signup                | -     | user | User Signup           | Name, age, direcction, location, phoneNumber, email, password, role| {msg: string, token: token }
@@ -38,6 +38,7 @@ METHOD | ENDPOINT                    | TOKEN | ROLE   | DESCRIPTION           | 
 -------|-----------------------------|-------|--------|-----------------------|----------------------------------------------|--------------------
 GET    | /user/profile               | YES   | user   | see own profile       | id                                           | {own profile}
 PUT    | /user/profile               | YES   | user   | update own profile    | Name, age, direcction, location, phoneNumber, email, password, role                          | {own profile}
+PUT    | /user/profile               | YES   | user   | update own profile    | Name, age, direcction, location, phoneNumber, email, password                          | {own profile}
 DELETE | /user/profile               | YES   | user   | delete own profile    |                                              | { msg: string }
 
 
@@ -55,6 +56,7 @@ DELETE | /user/ad                    | YES   | user   | Delete own ad         | 
 
 METHOD | ENDPOINT                    | TOKEN | ROLE   | DESCRIPTION           | POST PARAMS                                  | RETURNS
 -------|-----------------------------|-------|--------|-----------------------|----------------------------------------------|--------------------
+POST   | /province                   | YES   | user   | Create one province   | provinceName                                 | { msg: string }
 
 
 ### ADMIN
@@ -74,6 +76,4 @@ DELETE | /ad/:adId                   | YES   | ADMIN  | Delete one ad         | 
 
 
 GET** = we are not sure we can get this endpoint into the first version
-
-
 
