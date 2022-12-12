@@ -54,6 +54,9 @@ function LoginPage() {
     }
 
   return (
+
+    //OJOOO, PTE. HACER LO DE LA CONTRASEÑA VISIBLE O NO, Y LO DE OLVIDÓ SU CONTRASEÑA (VIDEO MUI 1)
+
     <Box style={BACKGROUND}>
     <Grid container>
     <Grid item xs={12} md={6}></Grid> {/* preguntar como podemos hacer para que cambien los tamaños de las cosas cuando se hace más pequeña la pantalla */}
