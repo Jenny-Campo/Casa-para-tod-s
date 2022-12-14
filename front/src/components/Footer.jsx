@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Container, Grid, Typography, ThemeProvider, createTheme, CardActions, CardMedia, CardActionArea } from '@mui/material';
+import { Box, Container, Grid, Typography, ThemeProvider, createTheme, CardActions, CardMedia, CardActionArea, Card } from '@mui/material';
 import { useState } from 'react';
 
 const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco / dark=azul osc. /contrastText= amarillo)
@@ -19,23 +19,19 @@ function Footer() {
     return ( //PTE. conseguir poner las letras a la derecha y poner logo a la izquierda, Y QUE SE VEA EL LOGO!!!!!
         <footer> 
             <ThemeProvider theme={theme}> 
-            <Box bgcolor='main' color='dark' padding={2}>
+            <Box sx={{ flexGrow: 1  }} position={'static'} bgcolor='main' color='dark' padding={1}>
                 <Container fluid="true">
-                <Grid container spacing={5} margin={5}>
-                <Grid item xs={12}><Grid/>
-                <CardActionArea>
+                <Grid container>
+                <Grid item xs={12} justify="center" align="center">
+                    <Card sx={{width:'150px'}} elevation="0">
                     <CardMedia
                         component="img"
                         image="/CasaParaTodosLogo.png"
                         alt="People sharing a cake"
-                        justify="center"
-                        align="center"
-                        sx={{borderRadius:'20'}}
-                        width="1"
-                        height="10"
-                        />  {/* ojoooo no consigo que la imagen sea responsive */}
-                </CardActionArea>
-                <Box  position={'fixed'} bottom="0" width='100%'>
+                        />
+                    </Card>
+                <Grid/>  {/* ojoooo no consigo que la imagen sea responsive */}
+                <Box paddingBottom={4}>
                     { links && links.map((section, idx) => {
                         return (<Grid item xs={12} key={idx}> {
                             section.map((title, idx) =>
@@ -50,14 +46,14 @@ function Footer() {
                         </Grid> 
                         )
                     })}  
-                </Box> 
-                <Box textAlign={'center'} py={2} m={0} bgcolor='main' color={'dark'}>
-                    <Typography>© Casa para tod@s 2022 - All Rights Reserved</Typography>
-                </Box>    
+                </Box>   
                 </Grid>  
                 </Grid>  
                 </Container>
-            </Box>   
+            </Box>
+            <Box textAlign={'center'} py={2} m={0} bgcolor='dark' color={'main'}>
+                    <Typography>© Casa para tod@s 2022 - All Rights Reserved</Typography>
+                </Box>     
             </ThemeProvider>    
         </footer>
     )
