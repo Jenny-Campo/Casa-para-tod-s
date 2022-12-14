@@ -26,16 +26,16 @@ function Footer() {
                 <CardActionArea>
                     <CardMedia
                         component="img"
-                        image="/Logo BG-MAIN - CASA PARA TODOS.jpg"
+                        image="/CasaParaTodosLogo.png"
                         alt="People sharing a cake"
                         justify="center"
                         align="center"
                         sx={{borderRadius:'20'}}
-                        width="5"
-                        height="20"
+                        width="1"
+                        height="10"
                         />  {/* ojoooo no consigo que la imagen sea responsive */}
                 </CardActionArea>
-                <Box  position={'static'} bottom={0} width='100%'>
+                <Box  position={'fixed'} bottom="0" width='100%'>
                     { links && links.map((section, idx) => {
                         return (<Grid item xs={12} key={idx}> {
                             section.map((title, idx) =>

@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
 
-function HouseCard({house}) {
+function HouseCard({house, location, direcction, description, rentalPrice}) {
   console.log(house)
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -19,13 +19,13 @@ function HouseCard({house}) {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-           Tenerife , Calle Guía de Isora
+           { location } , { direcction }
           </Typography>
           <Typography variant="body2" color="text.secondary">
-          Este apartamento es el primero dentro de esta preciosa casa, al estilo casa canaria, rústico, elegante y a su vez acogedor. 
+            { description } 
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            300€
+            { rentalPrice }€
             </Typography>
         </CardContent>
       </CardActionArea>
