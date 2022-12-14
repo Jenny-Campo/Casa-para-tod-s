@@ -1,8 +1,9 @@
 import React from 'react'
-import { Box, Button, Card, CardActions, CardContent, CardHeader, TextField, Icons, createTheme, Grid  } from  '@mui/material/';
+import { Box, Button, Card, CardActions, CardContent, CardHeader, TextField, Typography, Icons, createTheme, Grid, InputAdornment } from  '@mui/material/';
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { login } from '../services/user'
+import { Email } from '@mui/icons-material';
 
 const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco / dark=azul osc. /contrastText= amarillo)
     palette: {
@@ -57,20 +58,33 @@ function LoginPage() {
 
     <Box style={BACKGROUND}>
     <Grid container>
-    <Grid item xs={12}> {/* preguntar como podemos hacer para que cambien los tamaños de las cosas cuando se hace más pequeña la pantalla */}
         <Card sx={CARD}>
+        <Grid item xs={12}> 
             <CardContent>
                 <CardHeader title="Login" sx={{backgroundColor: '#004A94', color: '#F7F9A7', borderRadius: 1, marginBottom: '20px' }} />
-                <TextField label="Email" type="string" variant="outlined" fullWidth sx={{marginBottom: '20px'}} value={email} onChange={(e) => setEmail(e.target.value)}/>
-                <TextField label="Contraseña" type="password" variant="outlined" fullWidth sx={{marginBottom: '20px'}} value={password} onChange={(e) => setPassword(e.target.value)}/>
-            
-                <CardActions  color='succes'  sx={{display: 'flex', justify: 'end'}}>
+                <TextField 
+                    label="Email"
+                    type="string"
+                    variant="outlined" 
+                    fullWidth 
+                    sx={{marginBottom: '20px'}} 
+                    InputProps={{
+                        startAdornment: (
+                            <InputAdornment position='start'>
+                                <Email/>
+                            </InputAdornment>
+                    ) }}
+                    value={email} onChange={(e) => setEmail(e.target.value)}/>
+
+                
+                <TextField label="Contraseña" type="password" variant="outlined" fullWidth  value={password} onChange={(e) => setPassword(e.target.value)}/>
+                {/* <Box component="span" sx={{ p: 0, ml: '8px' }}>He olvidado mi contraseña</Box>  */}
+                <CardActions  color='succes'  sx={{display: 'flex', justifyContent: 'flex-end'}}>
                     <Button variant="contained" sx={BUTTON1} onClick={() => login()}>Accede</Button>
                 </CardActions>
             </CardContent>
-
-        </Card>
         </Grid>
+        </Card> 
     </Grid>
     </Box>
   )
