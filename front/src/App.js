@@ -1,16 +1,22 @@
 import './App.css';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './routes';
+import { createContext, useState } from 'react';
+
+ export const Context = createContext(null)
 
 
 function App() {
+  const [search, setSearch] = useState([])
 
   return (
    
     <div>
-    <RouterProvider router={router}>
+    <Context.Provider value={{search, setSearch}}>
+      <RouterProvider router={router}>
     
-    </RouterProvider>
+      </RouterProvider>
+    </Context.Provider>
     </div>
     
     

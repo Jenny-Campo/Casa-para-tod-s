@@ -26,10 +26,10 @@ const HouseAd = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false
     },
-    visibleDirecction: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-    },
+    // visibleDirecction: {
+    //   type: DataTypes.BOOLEAN,
+    //   allowNull: false,
+    // },
     location: {
       type: DataTypes.STRING,
       allowNull: false

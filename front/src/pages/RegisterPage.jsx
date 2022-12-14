@@ -24,7 +24,7 @@ const CARD = {         //ojo, aquí no coge los nombres de los colores, solo los
     width: '900px',
     margin: '20px auto', // 2 valores aplica ariba-abajo, y der.-izq.
     display: 'flex',
-    justifyContent: 'center',
+    justify: 'center',
     backgroundColor: '#F1FAFC',  // en sx sería bgColor
     '@media print': {width: 300}
 }
@@ -110,7 +110,7 @@ function RegisterPage() {
                 <TextField label="Indica las normas que te gustaría tener en casa" type="string" variant="outlined" fullWidth sx={{marginBottom: '20px'}} value={rules} onChange={(e) => setRules(e.target.value)}/>
                 <TextField label="¿Con cuál de estas opciones te gustaría compartir? (Puedes seleccionar varias opciones)" type="string" variant="outlined" fullWidth sx={{marginBottom: '20px'}} value={roommate} onChange={(e) => setRoommate(e.target.value)}/>
 
-                <CardActions  color='succes'  sx={{display: 'flex', justifyContent: 'end'}}>
+                <CardActions  color='succes'  sx={{display: 'flex', justify: 'end'}}>
                     <Button variant="contained" sx={BUTTON1} onClick={() => register()}>Guardar los cambios</Button>
                 </CardActions>
             </CardContent>

@@ -1,4 +1,5 @@
 const Province = require ('../models/province.model')
+const HouseAd = require ('../models/house.model')
 
 
 // async function createProvince (req, res) {
@@ -26,7 +27,22 @@ async function getAllProvince (req, res) {
     }
 }
 
+async function findProvince (req, res) {
+    try {
+        const province = await Province.findOne({
+            where: {name: req.params.province}
+        })
+        const houseAds = await HouseAd.findAll({
+            where:{provinceId: province.id}
+        })
+        res.json(houseAds)
+    } catch (error) {
+        return res.status(500).send(error.message)
+    }
+}
+
 module.exports = {
     //createProvince,
-    getAllProvince
+    getAllProvince,
+    findProvince
 }

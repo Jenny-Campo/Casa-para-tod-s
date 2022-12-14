@@ -17,12 +17,14 @@ const CARD = {  // ESTILADO DE LA CARD
     margin: '0 auto',
     display: 'flex',
     borderRadius: 20,
+    align: 'center',
+    justify: 'center'
      
 }
 
 function WelcomeCard() {
   return (
-    <Box style={CARD} sx={{ flexGrow: 1, margin: '80px', alignItems: 'center', justifyItems: 'center'}}>
+    <Box style={CARD} sx={{ flexGrow: 1, margin: '80px' }}>
         <Card sx={{ MaxWidth: 300, marginTop: '20px'}}>
         <Grid container>
         <Grid item xs={12} md={6}></Grid> {/* preguntar como podemos hacer para que cambien los tamaños de las cosas cuando se hace más pequeña la pantalla */}
@@ -32,9 +34,9 @@ function WelcomeCard() {
                 component="img"
                 image="/WelcomeCard4.jpg"
                 alt="People sharing a cake"
-                justifyItems="center"
-                alignItems="center"
-                borderRadius="20"
+                justify="center"
+                align="center"
+                sx={{borderRadius:'20'}}
             />
             </CardActionArea>
         </Grid>

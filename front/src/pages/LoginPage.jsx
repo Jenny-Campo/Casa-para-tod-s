@@ -64,7 +64,7 @@ function LoginPage() {
                 <TextField label="Email" type="string" variant="outlined" fullWidth sx={{marginBottom: '20px'}} value={email} onChange={(e) => setEmail(e.target.value)}/>
                 <TextField label="Contraseña" type="password" variant="outlined" fullWidth sx={{marginBottom: '20px'}} value={password} onChange={(e) => setPassword(e.target.value)}/>
             
-                <CardActions  color='succes'  sx={{display: 'flex', justifyContent: 'end'}}>
+                <CardActions  color='succes'  sx={{display: 'flex', justify: 'end'}}>
                     <Button variant="contained" sx={BUTTON1} onClick={() => login()}>Accede</Button>
                 </CardActions>
             </CardContent>

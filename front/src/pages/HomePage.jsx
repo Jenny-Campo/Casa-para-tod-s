@@ -38,7 +38,7 @@ function Home() {
     <Grid container>
     <Grid item xs={12}>
       <Header/>
-      <Container fluid>
+      <Container fluid="true">
         <SearchBar/> 
           {/* <SearchBar onSearch={getSearch}/>  hay que poner onSearch en el elemento padre del componente, que creo que es este */}
           {/* <SearchList list= {searchResult} /> */}

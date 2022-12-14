@@ -1,7 +1,11 @@
-import React, {useState} from 'react';
-import { AppBar, Box, Button, ButtonGroup, Card, CardActions, CardContent, CardHeader, TextField, Toolbar, Typography, ThemeProvider, createTheme, Grid } from '@mui/material';
+import React, {useEffect, useState, useContext} from 'react';
+import { Autocomplete, Box, Button, Card, CardContent, CardHeader, TextField, ThemeProvider, createTheme, Grid } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-//import { search } from '../services/searchService';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { Context } from '../App';
+
 
 const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco / dark=azul osc. /contrastText= amarillo)
     palette: {
@@ -40,15 +44,27 @@ const BUTTON1 = {
     width: '170px'
 }
 
-function SearchBar({ onSearch }) {
+function SearchBar() {
 
-    // const [ searchTerm, setSearchTerm ] = useState('')
-    // const [ searchResult, setSearchResult ] = useState([])
+    const [ searchTerm, setSearchTerm ] = useState('')
+    const [ searchResult, setSearchResult ] = useState([])
 
-    // const search = async () => {
-    //     setSearchResult(await search(searchTerm))
-    //     onSearch(searchResult)
-    // }
+    const context = useContext(Context)
+
+
+    const search = async() => {
+        await axios.get(`http://localhost:2222/api/province/${searchTerm}`)
+        .then(response => {
+            context.setSearch(response.data);
+        }).catch(error => {
+            console.log(error)
+        })
+    }
+
+    const handleChange=e=>{
+        setSearchTerm(e.target.value);
+    }
+
 
     return (
     <ThemeProvider theme={theme}>
@@ -59,15 +75,13 @@ function SearchBar({ onSearch }) {
             <CardContent >
                 <CardHeader title="Encuentra casa compartida" sx={{backgroundColor: '#004A94', color: 'constrastText'}} />
                 <Card>
-                    <CardContent sx={{display:'flex', alignItems:'center', padding:'16px !important'}}>
+                    <CardContent sx={{display:'flex', align:'center', padding:'16px !important'}}>
                         <TextField label="Indique la localidad" 
                         variant="outlined" 
                         sx={{ backgroundColor: '#C9E4EB', flexGrow: 1 }}
-                        // onKeyDown={(e) => {
-                        //     if(e.key === 'Enter') search()
-                        // }} onChange={(e) => setSearchTerm(e.target.value) } 
+                        onChange={handleChange} 
                         />
-                        <Button variant="contained" size='large' endIcon={<SearchIcon />} sx={BUTTON1}>Buscar</Button>  {/* PTE. DE METER ESTO: onClick={() => login()}*/}
+                        <Button component={Link} to="/houseAd" variant="contained" size='large' endIcon={<SearchIcon />} sx={BUTTON1} onClick={() => search()}>Buscar </Button>
                     </CardContent>
                 </Card>
             </CardContent>

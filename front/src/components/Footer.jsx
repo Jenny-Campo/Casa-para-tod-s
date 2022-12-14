@@ -20,7 +20,7 @@ function Footer() {
         <footer> 
             <ThemeProvider theme={theme}> 
             <Box bgcolor='main' color='dark' padding={2}>
-                <Container fluid>
+                <Container fluid="true">
                 <Grid container spacing={5} margin={5}>
                 <Grid item xs={12}><Grid/>
                 <CardActionArea>
@@ -28,22 +28,22 @@ function Footer() {
                         component="img"
                         image="/Logo BG-MAIN - CASA PARA TODOS.jpg"
                         alt="People sharing a cake"
-                        justifyItems="center"
-                        alignItems="center"
-                        borderRadius="20"
+                        justify="center"
+                        align="center"
+                        sx={{borderRadius:'20'}}
                         width="5"
                         height="20"
                         />  {/* ojoooo no consigo que la imagen sea responsive */}
                 </CardActionArea>
                 <Box  position={'static'} bottom={0} width='100%'>
                     { links && links.map((section, idx) => {
-                        return (<Grid xs={12} key={idx}> {
+                        return (<Grid item xs={12} key={idx}> {
                             section.map((title, idx) =>
                             idx === 0 ?
-                            <Box textAlign={'left'}>
+                            <Box key={idx} textAlign={'left'}>
                                 {title}
                             </Box> :
-                            <Box textAlign={'left'}>
+                            <Box key={idx} textAlign={'left'}>
                                 <a>{title}</a>
                             </Box>)          
                         }
