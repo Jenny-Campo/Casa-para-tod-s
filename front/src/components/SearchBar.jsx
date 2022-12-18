@@ -1,11 +1,9 @@
-import React, {useEffect, useState, useContext} from 'react';
-import { Autocomplete, Box, Button, Card, CardContent, CardHeader, TextField, ThemeProvider, createTheme, Grid } from '@mui/material';
+import React, {useState, useContext} from 'react';
+import { Box, Button, Card, CardContent, CardHeader, TextField, ThemeProvider, createTheme, Grid } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { Context } from '../App';
-
 
 const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco / dark=azul osc. /contrastText= amarillo)
     palette: {
@@ -16,7 +14,6 @@ const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco 
     //   success: '#6CACCF' = azul medio, pero ya no se pueden meter más opciones en la paleta custom
     }
 })
-
 
 const CARD = {  // ESTILADO DE LA CARD
     height: 200,
@@ -35,10 +32,9 @@ const SEARCHBUTTON = { // botón dentro del que va la searchBar. Es una mierda, 
 }
 
 const BUTTON1 = {                
-    backgroundColor: '#6CACCF',
-    color: '#004A94',
+    backgroundColor: '#004A94',
+    color: '#F7F9A7',
     borderRadius: 1,
-
     marginLeft:'10px',
     height: '56px',
     width: '170px'
@@ -50,7 +46,6 @@ function SearchBar() {
     const [ searchResult, setSearchResult ] = useState([])
 
     const context = useContext(Context)
-
 
     const search = async() => {
         await axios.get(`http://localhost:2222/api/province/${searchTerm}`)
@@ -65,7 +60,6 @@ function SearchBar() {
         setSearchTerm(e.target.value);
     }
 
-
     return (
     <ThemeProvider theme={theme}>
     <Box sx={{ flexGrow: 1, margin: '20px'}}>
@@ -75,10 +69,10 @@ function SearchBar() {
             <CardContent >
                 <CardHeader title="Encuentra casa compartida" sx={{backgroundColor: '#004A94', color: 'constrastText'}} />
                 <Card>
-                    <CardContent sx={{display:'flex', align:'center', padding:'16px !important'}}>
+                    <CardContent sx={{display:'flex', backgroundColor: 'light', align:'center', padding:'16px !important'}}>
                         <TextField label="Indique la localidad" 
                         variant="outlined" 
-                        sx={{ backgroundColor: '#C9E4EB', flexGrow: 1 }}
+                        sx={{ backgroundColor: 'light', flexGrow: 1 }}
                         onChange={handleChange} 
                         />
                         <Button component={Link} to="/houseAd" variant="contained" size='large' endIcon={<SearchIcon />} sx={BUTTON1} onClick={() => search()}>Buscar </Button>

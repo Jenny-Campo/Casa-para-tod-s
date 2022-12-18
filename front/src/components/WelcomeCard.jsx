@@ -1,5 +1,6 @@
 import React from 'react'
-import { AppBar, Box, Button, ButtonGroup, Card, CardHeader, CardActions, CardActionArea, CardContent, CardMedia, TextField, Toolbar, Typography, ThemeProvider, createTheme, Grid } from '@mui/material';
+import { Box, Button, Card, CardActions, CardActionArea, CardContent, CardMedia, Typography, createTheme, Grid } from '@mui/material';
+import { Link } from 'react-router-dom'
 
 const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco / dark=azul osc. /contrastText= amarillo)
     palette: {
@@ -11,7 +12,6 @@ const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco 
    })
    
 const CARD = {  // ESTILADO DE LA CARD
-    height: 500,
     width: 1000,
     backgroundColor: '#004A94',
     margin: '0 auto',
@@ -24,25 +24,42 @@ const CARD = {  // ESTILADO DE LA CARD
 
 function WelcomeCard() {
   return (
+
     <Box style={CARD} sx={{ flexGrow: 1, margin: '80px' }}>
-        {/* <Card sx={{ MaxWidth: 300, marginTop: '20px'}}> */}
-        <Grid container>
-        <Grid item xs={12} md={6}>
-            <CardActionArea>
-{/* ojoooo no consigo que la imagen sea responsive */}
-            <CardMedia
-                component="img"
-                image="/WelcomeCard.jpg"
-                alt="People sharing a cake"
-                justify="center"
-                align="center"
-                borderRadius="20px"
-                sx={{borderRadius:'20'}}
-            />
-            </CardActionArea>
-        </Grid>
-        </Grid>
-        {/* </Card> */}
+    <Grid container>
+    <Grid item xs={12} md={6}>
+      <Card sx={{ width: '1000px', height: '900px', borderRadius: '20px', backgroundColor:'dark'}}>
+        <CardContent>
+          <Typography gutterBottom variant="h3" component="div" color="white" align="center">
+            Porque todas las generaciones tienen dificultades para el acceso a la vivienda
+          </Typography>
+          <Typography gutterBottom variant="h2" component="div" color="constrastText" align="center" sx={{fontWeight: 'bold'}}>
+            compartir
+          </Typography>
+          <Typography gutterBottom variant="h3" component="div" color="white" align="center">
+            nos beneficia a tod@s
+          </Typography>
+        </CardContent>
+        
+        <CardActionArea>    {/* ojoooo no consigo que la imagen sea responsive */}
+          <CardMedia
+            component="img"
+            height="500"
+            image="/WelcomeCard3.jpg"
+            alt="People sharing a cake"
+          />
+        </CardActionArea>
+
+        <CardActions  color='succes'  sx={{display: 'flex', justifyContent: 'center'}}>
+          <Button component={Link} to="/infoApp" size='large' variant="contained" align='center'
+            sx={{ borderRadius: 10, color: 'dark', backgroundColor: 'constrastText', marginTop: '10px' }}>
+              Ampliar información
+          </Button>
+        </CardActions>
+
+      </ Card>
+    </Grid>
+    </Grid>
     </Box>
   )
 }

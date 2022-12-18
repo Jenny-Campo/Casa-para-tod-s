@@ -5,6 +5,7 @@ import Login from '../pages/LoginPage'
 import HouseAdPage from '../pages/HouseAdPage'
 import HouseAdInfoPage from '../pages/HouseAdInfoPage'
 import UsersMenuPage from '../pages/UserMenuPage'
+import InfoAppPage from '../pages/InfoAppPage'
 
 export const router = createBrowserRouter([
     {path: '/', element: <Home/>},
@@ -12,5 +13,7 @@ export const router = createBrowserRouter([
     {path: '/login', element: <Login/>},
     {path: '/houseAd', element: <HouseAdPage/>},
     {path: '/houseInfo', element: <HouseAdInfoPage/>},
-    {path: '/userMenu', element: <UsersMenuPage/>}
+    {path: '/userMenu', element: <UsersMenuPage/>},
+    {path: '/userMenu', element: <UsersMenuPage/>},
+    {path: '/infoApp', element: <InfoAppPage/> }
 ])

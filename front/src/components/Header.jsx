@@ -13,8 +13,6 @@ const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco 
   }
  })
 
-// pte. poner el el botón de inicia sesión, el link a la página:
-
 function Header() {
   return (
     <ThemeProvider theme={theme}> 
@@ -28,34 +26,30 @@ function Header() {
                 <MenuIcon />
               </IconButton>
 
-              <Typography component={Link} to="/" color="dark" variant="h4" sx={{ flexGrow: 1}}> {/* flexgrow es para que crezca a medida que aumenta la pantalla */}
-                Casa para tod@s
-              </Typography>
+            <Button component={Link} to="/login" size='large' variant="contained" 
+              sx={{
+              borderRadius: 10, 
+              color: 'constrastText', 
+              marginRight:'6px',
+              backgroundColor: 'dark' }}>
+                Inicia sesión
+            </Button>
 
-              <ThemeProvider theme={theme}> 
-                <Button component={Link} to="/login" size='large' variant="contained" sx={{
-                  borderRadius: 10, 
-                  color: 'constrastText', 
-                  marginRight:'6px',
-                  backgroundColor: 'dark' }}>
-                    Inicia sesión
-                </Button>
-                <Button component={Link} to="/register" size='large' variant="contained" sx={{
-                  borderRadius: 10,
-                  color: 'constrastText',
-                  backgroundColor: 'dark' }}>
-                    Crea tu perfil
-                </Button>
-              </ThemeProvider>
-            </Toolbar>
-          </Grid>
-            </AppBar>
-          </Grid>
+            <Button component={Link} to="/register" size='large' variant="contained"
+              sx={{
+              borderRadius: 10,
+              color: 'constrastText',
+              backgroundColor: 'dark' }}>
+                Crea tu perfil
+            </Button>
+          </Toolbar>
         </Grid>
+        </AppBar>
+      </Grid>
+      </Grid>
       </Box> 
     </ThemeProvider>
   );
 }
-
 
 export default Header

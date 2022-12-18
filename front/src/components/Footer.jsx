@@ -50,8 +50,8 @@ function Footer() {
                 </Grid>  
                 </Grid>  
                 </Container>
-            </Box>
-            <Box textAlign={'center'} py={2} m={0} bgcolor='dark' color={'main'}>
+                </Box>
+                <Box textAlign={'center'} py={2} m={0} bgcolor='dark' color={'main'}>
                     <Typography>© Casa para tod@s 2022 - All Rights Reserved</Typography>
                 </Box>     
             </ThemeProvider>    
