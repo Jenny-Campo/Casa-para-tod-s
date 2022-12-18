@@ -1,18 +1,22 @@
 import React from 'react'
-import { Box, Button, Card, CardActions, CardContent, CardHeader, TextField, Typography, Icons, createTheme, Grid, InputAdornment } from  '@mui/material/';
+import { Box, Button, Card, CardActions, CardContent, CardHeader, TextField, Typography, Icons, createTheme, Grid, InputAdornment, ThemeProvider } from  '@mui/material/';
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { login } from '../services/user'
-import { Email } from '@mui/icons-material';
+import { loginService } from '../services/user'
+import { Email, Lock, VisibilityOff, Visibility } from '@mui/icons-material';
+import { Link } from 'react-router-dom'
 
-const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco / dark=azul osc. /contrastText= amarillo)
+
+{/* OJOOOOOOO, pte. mejorar la posición del botón */}
+
+const theme = createTheme({ 
     palette: {
-      light: '#C9E4EB',
-      main: '#F1FAFC',
-      dark: '#004A94',
-      constrastText: '#F7F9A7'
+      light: '#C9E4EB', // azul claro
+      main: '#F1FAFC', // blanco roto
+      dark: '#004A94', //azul oscuro
+      constrastText: '#F7F9A7' // amarillo
     }
-}) //ojo, no consigo que funcione con los nombres
+}) 
 
 const BACKGROUND = {
     height: 2000,
@@ -25,7 +29,7 @@ const BACKGROUND = {
 const CARD = {         //ojo, aquí no coge los nombres de los colores, solo los números
     width: '500px',
     margin: '20px auto', // 2 valores aplica ariba-abajo, y der.-izq.
-    backgroundColor: '#F1FAFC',  // en sx sería bgColor
+    backgroundColor: '#F1FAFC', 
 }
 
 const BUTTON1 = {                 // OJOOO, no consigo que quede alineado con el final del último cajón
@@ -37,56 +41,83 @@ const BUTTON1 = {                 // OJOOO, no consigo que quede alineado con el
 
 function LoginPage() {
 
+    const [ showPassword, setShowPassword ] = useState(false); {/*valor inicial falso*/}
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
 
     const navigate = useNavigate()
 
-    const login = () => {
+    const login = async () => {
         const user = {
             email,
             password
         }
 
-        login(user)
-        navigate('/')
+        try {
+            const {data} = await loginService(user)
+            console.log('data de loginservice:', data)
+            localStorage.setItem('email', user.email)
+            localStorage.setItem('token', data.token)
+        } catch (e) {
+            console.log(e)
+        }
     }
-
+    
   return (
 
-    //OJOOO, PTE. HACER LO DE LA CONTRASEÑA VISIBLE O NO, Y LO DE OLVIDÓ SU CONTRASEÑA (VIDEO MUI 1), también que quede la card centrada
+    //OJOOO, PTE. HACER LO DE OLVIDÓ SU CONTRASEÑA (VIDEO MUI 1), también que quede la card centrada
 
+    <ThemeProvider theme={theme}>
     <Box style={BACKGROUND}>
     <Grid container>
         <Card sx={CARD}>
         <Grid item xs={12}> 
             <CardContent>
-                <CardHeader title="Login" sx={{backgroundColor: '#004A94', color: '#F7F9A7', borderRadius: 1, marginBottom: '20px' }} />
+                <CardHeader title="Login" sx={{backgroundColor: 'dark', color: 'constrastText', borderRadius: 1, marginBottom: '20px' }} />
                 <TextField 
                     label="Email"
-                    type="string"
+                    type="email"
                     variant="outlined" 
                     fullWidth 
                     sx={{marginBottom: '20px'}} 
                     InputProps={{
                         startAdornment: (
                             <InputAdornment position='start'>
-                                <Email/>
+                                <Lock/>
                             </InputAdornment>
                     ) }}
-                    value={email} onChange={(e) => setEmail(e.target.value)}/>
-
-                
-                <TextField label="Contraseña" type="password" variant="outlined" fullWidth  value={password} onChange={(e) => setPassword(e.target.value)}/>
+                    value={email} onChange={(e) => setEmail(e.target.value)}
+                />
+                <TextField 
+                    label="Contraseña"
+                    type={ showPassword ? 'text' : 'password' }
+                    variant="outlined"
+                    fullWidth
+                    InputProps={{
+                        startAdornment: (
+                            <InputAdornment position='start'>
+                                <Email/>
+                            </InputAdornment>
+                    ),
+                        endAdornment: (
+                            <InputAdornment position='end' onClick={() => { setShowPassword((current) => !current)}}> {/*asignamos lo contrario de lo q tenga showPassword*/}
+                                { showPassword ? <Visibility/> : <VisibilityOff/> } {/* si showPassword es verdadero, cargo on, sino off*/}
+                            </InputAdornment>
+                        )
+                    }}
+                    value={password} onChange={(e) => setPassword(e.target.value)}
+                />
                 {/* <Box component="span" sx={{ p: 0, ml: '8px' }}>He olvidado mi contraseña</Box>  */}
+                
                 <CardActions  color='succes'  sx={{display: 'flex', justifyContent: 'flex-end'}}>
-                    <Button variant="contained" sx={BUTTON1} onClick={() => login()}>Accede</Button>
+                    <Button component={Link} to="/userMenu"variant="contained" sx={BUTTON1} onClick={() => login()}>Accede</Button>
                 </CardActions>
             </CardContent>
         </Grid>
         </Card> 
     </Grid>
     </Box>
+    </ThemeProvider>
   )
 }
 

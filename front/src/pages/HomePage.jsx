@@ -24,10 +24,6 @@ const BACKGROUND = {
 
 function Home() {
 
-  // const [ searchResult, setSearchResult ] = useState([])
-  // const getSearch = (search) => {
-  //   setSearchResult(search)
-  // }
 
   return (
 
