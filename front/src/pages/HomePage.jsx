@@ -17,7 +17,7 @@ const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco 
 })
 
 const BACKGROUND = {
-  height: 900,
+  height: 1250,
   backgroundColor: '#C9E4EB',
   margin: '0 auto',
 }

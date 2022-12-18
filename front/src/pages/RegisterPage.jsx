@@ -26,8 +26,8 @@ const CARD = {         //ojo, aquí no coge los nombres de los colores, solo los
     margin: '20px auto', // 2 valores aplica ariba-abajo, y der.-izq.
     display: 'flex',
     justify: 'center',
+    align:'center',
     backgroundColor: '#F1FAFC',  // en sx sería bgColor
-    '@media print': {width: 300}
 }
 
 const BUTTON1 = {                 // OJOOO, no consigo que quede alineado con el final del último cajón
