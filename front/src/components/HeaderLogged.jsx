@@ -18,39 +18,39 @@ const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco 
 function Header() {
   return (
     <ThemeProvider theme={theme}> 
-      <Box id="box-header" sx={{ flexGrow: 1  }}>
+        <Box id="box-header" sx={{ flexGrow: 1  }}>
         <Grid container>
-          <Grid item xs={12}>         {/* OJOOO, preguntar a Álvaro, por qué falla al meterle el md */}
+        <Grid item xs={12}>         {/* OJOOO, preguntar a Álvaro, por qué falla al meterle el md */}
             <AppBar sx={{ backgroundColor: 'main', flexGrow: 1  }} position="static">
-                <Grid item xs={12}>
-            <Toolbar> {/* menú de hamburguesa */}
-              <IconButton size="large" edge="start" aria-label="menu" sx={{ mr: 2, color: 'dark'}}>
-                <MenuIcon/>
-              </IconButton>
-
-              <Typography component={Link} to="/" color="dark" variant="h4" sx={{ flexGrow: 1}}> {/* flexgrow es para que crezca a medida que aumenta la pantalla */}
-                Casa para tod@s
-              </Typography>
-
-              <ThemeProvider theme={theme}> 
-                <Button component={Link} to="/userMenu" size='large' variant="contained" sx={{
-                  borderRadius: 10, 
-                  color: 'constrastText', 
-                  marginRight:'6px',
-                  backgroundColor: 'dark' }}>
-                    <IconButton aria-label="profile" sx={{color: 'constrastText'}}>
-                        <AccountCircleOutlinedIcon/>
+            <Grid item xs={12}>
+                <Toolbar> 
+                    <IconButton size="large" edge="start" aria-label="menu" sx={{ mr: 2, color: 'dark'}}>
+                        <MenuIcon/>
                     </IconButton>
-                    Mi perfil
-                </Button>
 
-              </ThemeProvider>
-            </Toolbar>
+                    <Typography component={Link} to="/" color="dark" variant="h4" sx={{ flexGrow: 1}}> {/* flexgrow es para que crezca a medida que aumenta la pantalla */}
+                        Casa para tod@s
+                    </Typography>
+
+                    <ThemeProvider theme={theme}> 
+                        <Button component={Link} to="/userMenu" size='large' variant="contained"
+                            sx={{
+                            borderRadius: 10, 
+                            color: 'constrastText', 
+                            marginRight:'6px',
+                            backgroundColor: 'dark' }}>
+                                <IconButton aria-label="profile" sx={{color: 'constrastText'}}>
+                                    <AccountCircleOutlinedIcon/>
+                                </IconButton>
+                                    Mi perfil
+                        </Button>
+                    </ThemeProvider>
+                </Toolbar>
             </Grid>
             </AppBar>
-          </Grid>
         </Grid>
-      </Box> 
+        </Grid>
+        </Box> 
     </ThemeProvider>
   );
 }

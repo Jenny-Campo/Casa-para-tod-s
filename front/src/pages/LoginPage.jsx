@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Button, Card, CardActions, CardContent, CardHeader, TextField, Typography, Icons, createTheme, Grid, InputAdornment, ThemeProvider } from  '@mui/material/';
+import { Box, Button, Card, CardActions, CardContent, CardHeader, TextField, createTheme, Grid, InputAdornment, ThemeProvider } from  '@mui/material/';
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { loginService } from '../services/user'
@@ -68,55 +68,55 @@ function LoginPage() {
     //OJOOO, PTE. HACER LO DE OLVIDÓ SU CONTRASEÑA (VIDEO MUI 1), también que quede la card centrada
 
     <ThemeProvider theme={theme}>
-    <Box style={BACKGROUND}>
-    <Grid container>
-        <Card sx={CARD}>
-        <Grid item xs={12}> 
-            <CardContent>
-                <CardHeader title="Login" sx={{backgroundColor: 'dark', color: 'constrastText', borderRadius: 1, marginBottom: '20px' }} />
-                <TextField 
-                    label="Email"
-                    type="email"
-                    variant="outlined" 
-                    fullWidth 
-                    sx={{marginBottom: '20px'}} 
-                    InputProps={{
-                        startAdornment: (
-                            <InputAdornment position='start'>
-                                <Lock/>
-                            </InputAdornment>
-                    ) }}
-                    value={email} onChange={(e) => setEmail(e.target.value)}
-                />
-                <TextField 
-                    label="Contraseña"
-                    type={ showPassword ? 'text' : 'password' }
-                    variant="outlined"
-                    fullWidth
-                    InputProps={{
-                        startAdornment: (
-                            <InputAdornment position='start'>
-                                <Email/>
-                            </InputAdornment>
-                    ),
-                        endAdornment: (
-                            <InputAdornment position='end' onClick={() => { setShowPassword((current) => !current)}}> {/*asignamos lo contrario de lo q tenga showPassword*/}
-                                { showPassword ? <Visibility/> : <VisibilityOff/> } {/* si showPassword es verdadero, cargo on, sino off*/}
-                            </InputAdornment>
-                        )
-                    }}
-                    value={password} onChange={(e) => setPassword(e.target.value)}
-                />
-                {/* <Box component="span" sx={{ p: 0, ml: '8px' }}>He olvidado mi contraseña</Box>  */}
+        <Box style={BACKGROUND}>
+        <Grid container>
+            <Card sx={CARD}>
+            <Grid item xs={12}> 
+                <CardContent>
+                    <CardHeader title="Login" sx={{backgroundColor: 'dark', color: 'constrastText', borderRadius: 1, marginBottom: '20px' }} />
+                    <TextField 
+                        label="Email"
+                        type="email"
+                        variant="outlined" 
+                        fullWidth 
+                        sx={{marginBottom: '20px'}} 
+                        InputProps={{
+                            startAdornment: (
+                                <InputAdornment position='start'>
+                                    <Lock/>
+                                </InputAdornment>
+                        ) }}
+                        value={email} onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <TextField 
+                        label="Contraseña"
+                        type={ showPassword ? 'text' : 'password' }
+                        variant="outlined"
+                        fullWidth
+                        InputProps={{
+                            startAdornment: (
+                                <InputAdornment position='start'>
+                                    <Email/>
+                                </InputAdornment>
+                            ),
+                            endAdornment: (
+                                <InputAdornment position='end' onClick={() => { setShowPassword((current) => !current)}}> {/*asignamos lo contrario de lo q tenga showPassword*/}
+                                    { showPassword ? <Visibility/> : <VisibilityOff/> } {/* si showPassword es verdadero, cargo on, sino off*/}
+                                </InputAdornment>
+                            )
+                        }}
+                        value={password} onChange={(e) => setPassword(e.target.value)}
+                    />
+                    {/* <Box component="span" sx={{ p: 0, ml: '8px' }}>He olvidado mi contraseña</Box>  */}
                 
-                <CardActions  color='succes'  sx={{display: 'flex', justifyContent: 'flex-end'}}>
-                    <Button component={Link} to="/userMenu"variant="contained" sx={BUTTON1} onClick={() => login()}>Accede</Button>
-                </CardActions>
-            </CardContent>
+                    <CardActions  color='succes'  sx={{display: 'flex', justifyContent: 'flex-end'}}>
+                        <Button component={Link} to="/userMenu"variant="contained" sx={BUTTON1} onClick={() => login()}>Accede</Button>
+                    </CardActions>
+                </CardContent>
+            </Grid>
+            </Card> 
         </Grid>
-        </Card> 
-    </Grid>
-    </Box>
+        </Box>
     </ThemeProvider>
   )
 }

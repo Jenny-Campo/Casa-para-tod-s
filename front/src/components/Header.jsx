@@ -13,49 +13,47 @@ const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco 
   }
  })
 
-// pte. poner el el botón de inicia sesión, el link a la página:
-
 function Header() {
   return (
     <ThemeProvider theme={theme}> 
       <Box id="box-header" sx={{ flexGrow: 1  }}>
-        <Grid container>
-          <Grid item xs={12}>         {/* OJOOO, preguntar a Álvaro, por qué falla al meterle el md */}
-            <AppBar sx={{ backgroundColor: 'main', flexGrow: 1  }} position="static">
-          <Grid item xs={12}>
-            <Toolbar> {/* menú de hamburguesa */}
-              <IconButton size="large" edge="start" aria-label="menu" sx={{ mr: 2, color: 'dark'}}>
-                <MenuIcon />
-              </IconButton>
+      <Grid container>
+      <Grid item xs={12}>         {/* OJOOO, preguntar a Álvaro, por qué falla al meterle el md */}
+        <AppBar sx={{ backgroundColor: 'main', flexGrow: 1  }} position="static">
+        <Grid item xs={12}>
+          <Toolbar> {/* menú de hamburguesa */}
+            <IconButton size="large" edge="start" aria-label="menu" sx={{ mr: 2, color: 'dark'}}>
+              <MenuIcon />
+            </IconButton>
 
-              <Typography component={Link} to="/" color="dark" variant="h4" sx={{ flexGrow: 1}}> {/* flexgrow es para que crezca a medida que aumenta la pantalla */}
-                Casa para tod@s
-              </Typography>
+            <Typography component={Link} to="/" color="dark" variant="h4" sx={{ flexGrow: 1}}> {/* flexgrow es para que crezca a medida que aumenta la pantalla */}
+              Casa para tod@s
+            </Typography>
 
-              <ThemeProvider theme={theme}> 
-                <Button component={Link} to="/login" size='large' variant="contained" sx={{
-                  borderRadius: 10, 
-                  color: 'constrastText', 
-                  marginRight:'6px',
-                  backgroundColor: 'dark' }}>
-                    Inicia sesión
-                </Button>
-                <Button component={Link} to="/register" size='large' variant="contained" sx={{
-                  borderRadius: 10,
-                  color: 'constrastText',
-                  backgroundColor: 'dark' }}>
-                    Crea tu perfil
-                </Button>
-              </ThemeProvider>
-            </Toolbar>
-          </Grid>
-            </AppBar>
-          </Grid>
+            <Button component={Link} to="/login" size='large' variant="contained" 
+              sx={{
+              borderRadius: 10, 
+              color: 'constrastText', 
+              marginRight:'6px',
+              backgroundColor: 'dark' }}>
+                Inicia sesión
+            </Button>
+
+            <Button component={Link} to="/register" size='large' variant="contained"
+              sx={{
+              borderRadius: 10,
+              color: 'constrastText',
+              backgroundColor: 'dark' }}>
+                Crea tu perfil
+            </Button>
+          </Toolbar>
         </Grid>
+        </AppBar>
+      </Grid>
+      </Grid>
       </Box> 
     </ThemeProvider>
   );
 }
-
 
 export default Header

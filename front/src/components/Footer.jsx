@@ -19,7 +19,7 @@ function Footer() {
     return ( //PTE. conseguir poner las letras a la derecha y poner logo a la izquierda, Y QUE SE VEA EL LOGO!!!!!
         <footer> 
             <ThemeProvider theme={theme}> 
-            <Box sx={{ flexGrow: 1  }} position={'static'} bgcolor='main' color='dark' padding={1}>
+                <Box sx={{ flexGrow: 1  }} position={'static'} bgcolor='main' color='dark' padding={1}>
                 <Container fluid="true">
                 <Grid container>
                 <Grid item xs={12} justify="center" align="center">
@@ -50,8 +50,8 @@ function Footer() {
                 </Grid>  
                 </Grid>  
                 </Container>
-            </Box>
-            <Box textAlign={'center'} py={2} m={0} bgcolor='dark' color={'main'}>
+                </Box>
+                <Box textAlign={'center'} py={2} m={0} bgcolor='dark' color={'main'}>
                     <Typography>© Casa para tod@s 2022 - All Rights Reserved</Typography>
                 </Box>     
             </ThemeProvider>    

@@ -30,20 +30,18 @@ function Home() {
     //OJOOOOOO, EN LAS PANTALLAS PEQUEÑAS HAY UN MARGEN A LA DRCHA. QUE NO PUEDO QUITAR!!! (en pantalla completa no sale)
 
     <ThemeProvider theme={theme}>
-    <Box id="Home" style={BACKGROUND}>
-    <Grid container>
-    <Grid item xs={12}>
-      <Header/>
-      <Container fluid="true">
-        <SearchBar/> 
-          {/* <SearchBar onSearch={getSearch}/>  hay que poner onSearch en el elemento padre del componente, que creo que es este */}
-          {/* <SearchList list= {searchResult} /> */}
-        <WelcomeCard/>
-      </Container>
-    </Grid>
-    </Grid>
-    </Box>
-    <Footer/>
+      <Box id="Home" style={BACKGROUND}>
+      <Grid container>
+      <Grid item xs={12}>
+        <Header/>
+        <Container fluid="true">
+          <SearchBar/> 
+          <WelcomeCard/>
+        </Container>
+      </Grid>
+      </Grid>
+      </Box>
+      <Footer/>
     </ThemeProvider>
   )
 }

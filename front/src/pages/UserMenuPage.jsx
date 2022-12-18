@@ -2,12 +2,11 @@ import React from 'react'
 import HeaderLogged from '../components/HeaderLogged';
 import { Box, ThemeProvider, createTheme, Container, Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText,
   Divider, Card, CardActionArea, CardMedia, CardContent, CardHeader} from '@mui/material';
-  import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
-  import OutboxOutlinedIcon from '@mui/icons-material/OutboxOutlined';
-  import InboxOutlinedIcon from '@mui/icons-material/InboxOutlined';
-  import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
-  import Footer from '../components/Footer';
-
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import OutboxOutlinedIcon from '@mui/icons-material/OutboxOutlined';
+import InboxOutlinedIcon from '@mui/icons-material/InboxOutlined';
+import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
+import Footer from '../components/Footer';
 
 
 const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco / dark=azul osc. /contrastText= amarillo)
@@ -34,90 +33,86 @@ const CARD = {         //ojo, aquí no coge los nombres de los colores, solo los
   '@media print': {width: 300}
 }
 
-
 function UsersMenu() {
-
-
 
   return (
     
-
     <ThemeProvider theme={theme}>
-    <HeaderLogged/>
+      <HeaderLogged/>
 
-    <Box id="Home" style={BACKGROUND} sx={{ flexGrow: 1 }}>
-    <Grid container>
-    <Grid item xs={12}>
-    <Container fluid="true">
+      <Box id="Home" style={BACKGROUND} sx={{ flexGrow: 1 }}>
+      <Grid container>
+      <Grid item xs={12}>
+      <Container fluid="true">
 
-    <Card sx={{ width: '500px', height: '300px', margin: '20px auto' }}> {/* OJOOO, NO CONSIGO QUE LA FOTO SEA RESPONSIVE !! */}
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          height="300"
-          image="/saludo.png"
-          alt="Welcome"
-        />
-      </CardActionArea>
-    </Card>
+        <Card sx={{ width: '500px', height: '300px', margin: '20px auto' }}> {/* OJOOO, NO CONSIGO QUE LA FOTO SEA RESPONSIVE !! */}
+          <CardActionArea>
+            <CardMedia
+              component="img"
+              height="300"
+              image="/saludo.png"
+              alt="Welcome"
+            />
+          </CardActionArea>
+        </Card>
 
-    <Box sx={{ width: '100%', maxWidth: 450, bgcolor: 'main', margin: '20px auto', color: 'dark', fontWeight: 'bold', fontSize: 'h6' }}>
-      <CardContent>
-        <CardHeader title="Bienvenid@, ¿qué quieres hacer?" sx={{backgroundColor: 'dark', color: 'constrastText', borderRadius: 1, alignItems: 'center' }} />
-      </CardContent>
-      <nav aria-label="main mailbox folders">
-        <List>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <EditOutlinedIcon sx={{color: 'dark'}} />
-              </ListItemIcon>
-              <ListItemText primary="Modificar mi perfil" />
-            </ListItemButton>
-          </ListItem>
+        <Box sx={{ width: '100%', maxWidth: 450, bgcolor: 'main', margin: '20px auto', color: 'dark', fontWeight: 'bold', fontSize: 'h6' }}>
+          <CardContent>
+            <CardHeader title="Bienvenid@, ¿qué quieres hacer?" sx={{backgroundColor: 'dark', color: 'constrastText', borderRadius: 1, alignItems: 'center' }} />
+          </CardContent>
+          <nav aria-label="main mailbox folders">
+            <List>
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <EditOutlinedIcon sx={{color: 'dark'}} />
+                  </ListItemIcon>
+                  <ListItemText primary="Modificar mi perfil" />
+                </ListItemButton>
+              </ListItem>
+              <Divider />
+
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <OutboxOutlinedIcon sx={{color: 'dark'}} />
+                  </ListItemIcon>
+                  <ListItemText primary="Publicar un anuncio" />
+                </ListItemButton>
+              </ListItem>
+              <Divider />
+
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <InboxOutlinedIcon sx={{color: 'dark'}} />
+                  </ListItemIcon>
+                  <ListItemText primary="Ver mis anuncios" />
+                </ListItemButton>
+              </ListItem>
+              <Divider />
+
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <LogoutOutlinedIcon sx={{color: 'dark'}} />
+                  </ListItemIcon>
+                  <ListItemText primary="Cerrar sesión" />
+                </ListItemButton>
+              </ListItem>
+
+            </List>
+          </nav>
           <Divider />
 
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <OutboxOutlinedIcon sx={{color: 'dark'}} />
-              </ListItemIcon>
-              <ListItemText primary="Publicar un anuncio" />
-            </ListItemButton>
-          </ListItem>
-          <Divider />
-
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <InboxOutlinedIcon sx={{color: 'dark'}} />
-              </ListItemIcon>
-              <ListItemText primary="Ver mis anuncios" />
-            </ListItemButton>
-          </ListItem>
-          <Divider />
-
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <LogoutOutlinedIcon sx={{color: 'dark'}} />
-              </ListItemIcon>
-              <ListItemText primary="Cerrar sesión" />
-            </ListItemButton>
-          </ListItem>
-
-        </List>
-      </nav>
-      <Divider />
-
-    </Box>
-    </Container>
-    </Grid>
-    </Grid>
+      </Box>
+      </Container>
+      </Grid>
+      </Grid>
     </Box>
 
     <Footer/>
-    </ThemeProvider>
+  </ThemeProvider>
   )
 }
 
