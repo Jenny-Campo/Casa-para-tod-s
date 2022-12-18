@@ -1,10 +1,8 @@
 import React from 'react'
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-import HouseAdList from '../components/HouseAdList';
-import { useNavigate } from 'react-router-dom'
+import HouseAdInfo from '../components/HouseAdInfo';
 import { Box, Grid, ThemeProvider, createTheme } from '@mui/material';
-
 
 const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco / dark=azul osc. /contrastText= amarillo)
   palette: {
@@ -15,24 +13,23 @@ const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco 
   }
  })
 
-function HouseAdPage() {
 
-const navigate = useNavigate()
+function HouseAdInfoPage() {
   return (
     <div>
       <ThemeProvider theme={theme}>
-        <Box id="box-house" sx={{ flexGrow: 1, backgroundColor:'light'  }}>
-        <Grid container>
-        <Grid item xs={12}>
-        <Header/>
-        <HouseAdList/>
-        </Grid>
-        </Grid>
-        </Box>
-        <Footer/>
+      <Box sx={{ flexGrow: 1, backgroundColor:'light'  }}>
+      <Grid container>
+      <Grid item xs={12}>
+      <Header/>
+      <HouseAdInfo/>
+      </Grid>
+      </Grid>
+      </Box>
+      <Footer/>
       </ThemeProvider>
     </div>
   )
 }
 
-export default HouseAdPage
+export default HouseAdInfoPage

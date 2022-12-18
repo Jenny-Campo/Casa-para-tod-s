@@ -3,10 +3,12 @@ import Home from '../pages/HomePage'
 import Register from '../pages/RegisterPage'
 import Login from '../pages/LoginPage'
 import HouseAdPage from '../pages/HouseAdPage'
+import HouseAdInfoPage from '../pages/HouseAdInfoPage'
 
 export const router = createBrowserRouter([
     {path: '/', element: <Home/>},
     {path: '/register', element: <Register/>},
     {path: '/login', element: <Login/>},
-    {path: '/houseAd', element: <HouseAdPage/>}
+    {path: '/houseAd', element: <HouseAdPage/>},
+    {path: '/houseInfo', element: <HouseAdInfoPage/>}
 ])

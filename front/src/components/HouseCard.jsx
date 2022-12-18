@@ -3,34 +3,48 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
-import { height } from '@mui/system';
+import { Button, ThemeProvider, createTheme, CardActions } from '@mui/material';
+import { Link } from 'react-router-dom'
 
 
-function HouseCard({house, location, direcction, description, rentalPrice}) {
-  console.log(house)
+const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco / dark=azul osc. /contrastText= amarillo)
+  palette: {
+    light: '#C9E4EB',
+    main: '#F1FAFC',
+    dark: '#004A94',
+    constrastText: '#F7F9A7'
+  }
+ })
+
+
+function HouseCard({location, direcction, description, rentalPrice}) {
   return (
-    <Card sx={{ display: 'inline-flex', flexWrap: 'wrap', m:2,  width: '250px', height: '250px' }}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          height="140"
-          image="/WelcomeCard.jpg"
-          alt="House/Apartment"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-           { location } , { direcction }
+    <ThemeProvider theme={theme}>
+    <Card sx={{m:2,  width: '380px', height: '380px', position:'relative'}}>
+      <CardMedia
+        component="img"
+        height="200"
+        image="/WelcomeCard.jpg"
+        alt="House/Apartment"
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h6" component="div" color="dark">
+          { location } , { direcction }
+        </Typography>
+        <Typography variant="body3" color="text.secondary">
+          { description } 
+        </Typography>
+      </CardContent>
+      <CardActions sx={{position: 'absolute', display: 'flex', justifyContent: 'space-between', bottom:'0', right:'0'}}>
+      <Typography variant="h6" sx={{color:'dark'}}>
+          { rentalPrice }€/mes
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            { description } 
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            { rentalPrice }€
-            </Typography>
-        </CardContent>
-      </CardActionArea>
+        <Button component={Link} to="/houseInfo" size="sm" sx={{color:'dark'}}>
+          Info
+        </Button>
+      </CardActions>
     </Card>
+    </ThemeProvider>
   );
 }
 

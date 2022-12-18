@@ -21,7 +21,7 @@ function Header() {
       <Box id="box-header" sx={{ flexGrow: 1  }}>
         <Grid container>
           <Grid item xs={12}>         {/* OJOOO, preguntar a Álvaro, por qué falla al meterle el md */}
-            <AppBar sx={{ backgroundColor: 'main', flexGrow: 1  }} position="static">
+            <AppBar sx={{ backgroundColor: 'main', flexGrow: 1  }} position="sticky">
           <Grid item xs={12}>
             <Toolbar> {/* menú de hamburguesa */}
               <IconButton size="large" edge="start" aria-label="menu" sx={{ mr: 2, color: 'dark'}}>
