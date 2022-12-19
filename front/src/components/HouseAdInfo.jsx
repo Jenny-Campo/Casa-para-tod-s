@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card, ThemeProvider, createTheme, ImageList, ImageListItem, CardContent, Typography, Button, Grid, CardActions, CardMedia } from '@mui/material'
+import { Link } from 'react-router-dom'
 
 const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco / dark=azul osc. /contrastText= amarillo)
   palette: {
@@ -61,25 +62,39 @@ const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco 
   },
 ];
 
+const CARD = {  
+  width: 1200,
+  backgroundColor: '#C9E4EB',
+  margin: '20px auto',
+  display: 'flex',
+  borderRadius: 10,
+  marginTop: '20px',
+  color:'dark',
+  justifyContent:'space-between'
+  // align: 'center',
+  // justify: 'center',
+}
+
 
 function HouseAdInfo({location, direcction, description, rentalPrice}) {
   return (
     <ThemeProvider theme={theme}>
       <Grid container>
-        <Grid item xs={12} md={12}>
-      <Card align="center" sx={{ backgroundColor:'light', color:'dark' }}>
+        <Grid item xs={12}>
+      <Card sx={ CARD }>
+        <Grid xs={6}>
           <CardContent>
             <Typography variant="h3" component="div">
-              {location}, Gran Vía
+              Madrid, Gran Vía
             </Typography>
             <Typography variant="h4" component="div">
               Piso, Casi nuevo
             </Typography>
             <Typography variant="h4" component="div">
-              Baños:2
+              Baños: 2
             </Typography>
             <Typography variant="h4" component="div">
-              Habitaciones:4
+              Habitaciones: 4
             </Typography>
             <Typography variant="h5" component="div">
               400€/mes
@@ -87,14 +102,19 @@ function HouseAdInfo({location, direcction, description, rentalPrice}) {
             <Typography variant="h5" component="div">
               Descripción
             </Typography>
-            <Button>
+            <CardActions sx={{ position: 'absolute', display: 'flex', justifyContent: 'space-between', bottom:'0', left:'0' }}>
+            <Button variant="outlined">
               Enviar mensajes
             </Button>
-            <Button>
+            <Button component={Link} to="/ownerprofile" variant="outlined" sx={{ marginLeft:'12px' }}>
               Ver perfil del caser@
             </Button>
+            </CardActions>
+          </CardContent>
+          </Grid>
+          <Grid xs={6}>
             <CardMedia>
-          <ImageList sx={{ width: 500, height: 450, m:1 }} variant="woven" cols={3} gap={1}>
+          <ImageList sx={{ width: 500, height: 450 }} variant="woven" cols={3} gap={1}>
       {itemData.map((item) => (
         <ImageListItem key={item.img}>
           <img
@@ -103,11 +123,11 @@ function HouseAdInfo({location, direcction, description, rentalPrice}) {
             alt={item.title}
             loading="lazy"
           />
-        </ImageListItem>
+          </ImageListItem>
       ))}
-    </ImageList>
-    </CardMedia>
-          </CardContent>
+        </ImageList>
+      </CardMedia>
+      </Grid>
       </Card>
       </Grid>
       </Grid>

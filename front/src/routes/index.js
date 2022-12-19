@@ -6,6 +6,7 @@ import HouseAdPage from '../pages/HouseAdPage'
 import HouseAdInfoPage from '../pages/HouseAdInfoPage'
 import UsersMenuPage from '../pages/UserMenuPage'
 import InfoAppPage from '../pages/InfoAppPage'
+import OwnerProfile from '../pages/OwnerProfilePage'
 
 export const router = createBrowserRouter([
     {path: '/', element: <Home/>},
@@ -15,5 +16,6 @@ export const router = createBrowserRouter([
     {path: '/houseInfo', element: <HouseAdInfoPage/>},
     {path: '/userMenu', element: <UsersMenuPage/>},
     {path: '/userMenu', element: <UsersMenuPage/>},
-    {path: '/infoApp', element: <InfoAppPage/> }
+    {path: '/infoApp', element: <InfoAppPage/> },
+    {path:'/ownerprofile', element: <OwnerProfile/>}
 ])
