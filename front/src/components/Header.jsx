@@ -25,6 +25,10 @@ function Header() {
               <IconButton size="large" edge="start" aria-label="menu" sx={{ mr: 2, color: 'dark'}}>
                 <MenuIcon />
               </IconButton>
+          
+              <Typography component={Link} to="/" color="dark" variant="h4" sx={{ flexGrow: 1}}> 
+                Casa para tod@s
+              </Typography>
 
             <Button component={Link} to="/login" size='large' variant="contained" 
               sx={{

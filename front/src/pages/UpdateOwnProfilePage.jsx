@@ -1,9 +1,10 @@
-import {React, useEffect} from 'react';
-import { Box, Button, Card, CardActions, CardContent, CardHeader, TextField, Icons, createTheme, Grid, ThemeProvider, FormControl, InputLabel, Select, MenuItem  } from  '@mui/material/';
+import React from 'react';
+import { Box, Button, Card, CardActions, CardContent, CardHeader, TextField, Icons, createTheme, Grid, ThemeProvider  } from  '@mui/material/';
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { signupService } from '../services/authService'
-import provinceService from '../services/provinceService';
+import HeaderLogged from '../components/HeaderLogged';
+//import { userService } from '../services/User'
+
 
 const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco / dark=azul osc. /contrastText= amarillo)
     palette: {
@@ -35,17 +36,14 @@ const BUTTON1 = {                 // OJOOO, no consigo que quede alineado con el
     borderRadius: 50
 }
 
-function RegisterPage() {
+function UpdateOwnProfilePage() {
 
     const [name, setName] = useState()
     const [surname, setSurname] = useState()
     const [age, setAge] = useState()
-    const [email, setEmail] = useState()
-    const [password, setPassword] = useState()
-    const [password2, setPassword2] = useState()
     const [address, setAddress] = useState()
     const [location, setLocation] = useState()
-    const [province, setProvince] = useState()          
+    // const [province, setProvince] = useState()          // ojooooo, FALTA VER COMO VAMOS A HACER ESTO...  ¡¡ PROVINCIAS !!
     const [phoneNumber, setPhoneNumber] = useState()
     const [aboutYou, setAboutYou] = useState()
     const [lookingFor, setLookingFor] = useState()
@@ -60,16 +58,14 @@ function RegisterPage() {
 
     const navigate = useNavigate()
 
-    const register = async () => {
+    const profile = async () => {
         const user = {
             name,
             surname,
-            email,
-            password,
             age,
             address,
             location,
-            province,
+            // province,
             phoneNumber,
             aboutYou,
             lookingFor,
@@ -80,51 +76,36 @@ function RegisterPage() {
             rules,
             roommate
         }
-        if (password === password2){
-            const response = await signupService(user)
+
+        console.log('hola')
+        // if (password === password2){
+        //     const response = await signupService(user)
             
-            if(response.error) {
-                alert('usuario o contraseña erróneo')  //OJO, HAY QUE HACER UN COMPONENTE PARA ESTO
-            } else {
-                localStorage.setItem('email', response.email)
-                localStorage.setItem('token', response.token)  // con esto tendríamos el token guardado
-                navigate('/userMenu')
-            }
+        //     if(response.error) {
+        //         alert('usuario o contraseña erróneo')  //OJO, HAY QUE HACER UN COMPONENTE PARA ESTO
+        //     } else { 
+        //         localStorage.setItem('email', response.email)
+        //         localStorage.setItem('token', response.token)  // con esto tendríamos el token guardado
+        //         navigate('/userMenu')
+        //     }
 
 
-        } else {
-            alert('usuario o contraseña erróneo')
-        }
+        // } else {
+        //     alert('usuario o contraseña erróneo')
+        // }
 
     }
-
-    function handleChange(e){
-        setProvince(e.target.value)
-    }
-
-    console.log('Provincia elegida: ', province)
-
-    const [provinces, setProvinces] = useState([]) //el conjunto de todas las provincias
-
-    useEffect(() => {
-        async function getAllProvinces() {
-            setProvinces(await provinceService())
-        }
-        getAllProvinces()
-        console.log('provinces', provinces)
-    }, [])
-
-    console.log('resultado', provinces)
 
     return (
 
         <ThemeProvider theme={theme}>
+        <HeaderLogged/>
             <Box style={BACKGROUND}>
             <Grid container>
             <Grid item xs={12} md={12}> {/* preguntar como podemos hacer para que cambien los tamaños de las cosas cuando se hace más pequeña la pantalla */}
                 <Card sx={CARD}>
                     <CardContent>
-                        <CardHeader title="Crea tu perfil" sx={{backgroundColor: 'dark', color: 'constrastText', borderRadius: 1, marginBottom: '20px' }} />
+                        <CardHeader title="Modifica tu perfil" sx={{backgroundColor: 'dark', color: 'constrastText', borderRadius: 1, marginBottom: '20px' }} />
 
                         <TextField
                             label="Nombre"
@@ -143,32 +124,8 @@ function RegisterPage() {
                             value={surname} onChange={(e) => setSurname(e.target.value)}
                         />
                         <TextField
-                            label="Email"
-                            type="string"
-                            variant="outlined"
-                            fullWidth
-                            sx={{marginBottom: '20px'}}
-                            value={email} onChange={(e) => setEmail(e.target.value)}
-                        />
-                        <TextField
-                            label="Contraseña"
-                            type="password"
-                            variant="outlined"
-                            fullWidth
-                            sx={{marginBottom: '20px'}}
-                            value={password} onChange={(e) => setPassword(e.target.value)}
-                        />
-                        <TextField
-                            label="Repetir contraseña"
-                            type="password"
-                            variant="outlined"
-                            fullWidth
-                            sx={{marginBottom: '20px'}}
-                            value={password2} onChange={(e) => setPassword2(e.target.value)}
-                        />
-                        <TextField
                             label="Edad"
-                            type="number"
+                            type="string"
                             variant="outlined"
                             fullWidth
                             sx={{marginBottom: '20px'}}
@@ -183,7 +140,7 @@ function RegisterPage() {
                             value={address} onChange={(e) => setAddress(e.target.value)}
                         />
                         <TextField
-                            label="Localidad"
+                            label="Localización"
                             type="string"
                             variant="outlined"
                             fullWidth
@@ -198,30 +155,6 @@ function RegisterPage() {
                             sx={{marginBottom: '20px'}}
                             value={province} onChange={(e) => setProvince(e.target.value)}
                         /> */}
-
-                            <FormControl fullWidth sx={{marginBottom: '20px'}}>
-                                <InputLabel id="demo-simple-select-label">Provincia</InputLabel>
-                                <Select
-                                    labelId="demo-simple-select-label"
-                                    id="demo-simple-select"
-                                    value={province}
-                                    label="Age"
-                                    onChange={handleChange}
-                                    >{/*value={provincia} */}
-                                {/* <MenuItem value={'Las palmas'}>Las Palmas</MenuItem>
-                                <MenuItem value={43}>Santa Cruz de Tenerife</MenuItem>
-                                <MenuItem value={29}>Madrid</MenuItem> */}
-                                    {provinces.map((province) => {
-                                        <MenuItem
-                                            key={province.id}
-                                            value={province.name}
-                                        >
-                                            {province.name}
-                                        </MenuItem>
-                                    })}
-                                </Select>
-                            </FormControl>
-
                         <TextField
                             label="Teléfono"
                             type="integer"
@@ -296,7 +229,7 @@ function RegisterPage() {
                         />
 
                         <CardActions  color='succes'  sx={{display: 'flex', justify: 'end'}}>
-                            <Button variant="contained" sx={BUTTON1} onClick={() => register()}>  {/*component={Link} to="/userMenu"*/}
+                            <Button variant="contained" sx={BUTTON1} onClick={() => profile()}>  {/*component={Link} to="/userMenu"*/}
                                 Continuar
                             </Button>
                         </CardActions>
@@ -309,4 +242,4 @@ function RegisterPage() {
     )
 }
 
-export default RegisterPage
+export default UpdateOwnProfilePage

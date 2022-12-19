@@ -6,7 +6,10 @@ import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import OutboxOutlinedIcon from '@mui/icons-material/OutboxOutlined';
 import InboxOutlinedIcon from '@mui/icons-material/InboxOutlined';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
+import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import Footer from '../components/Footer';
+import GetOwnProfilePage from './GetOwnProfilePage';
+import { Link } from 'react-router-dom'
 
 
 const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco / dark=azul osc. /contrastText= amarillo)
@@ -19,7 +22,7 @@ const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco 
 })
 
 const BACKGROUND = {
-  height: 700,
+  height: 750,
   backgroundColor: '#C9E4EB',
   
 }
@@ -62,7 +65,17 @@ function UsersMenu() {
           </CardContent>
           <nav aria-label="main mailbox folders">
             <List>
-              <ListItem disablePadding>
+              <ListItem disablePadding component={Link} to="/getOwnProfile" sx={{color: 'dark'}}>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <VisibilityOutlinedIcon sx={{color: 'dark'}} />
+                  </ListItemIcon>
+                  <ListItemText primary="Ver mi perfil" />
+                </ListItemButton>
+              </ListItem>
+              <Divider/>
+
+              <ListItem disablePadding component={Link} to="/updateProfile" sx={{color: 'dark'}}>
                 <ListItemButton>
                   <ListItemIcon>
                     <EditOutlinedIcon sx={{color: 'dark'}} />
@@ -70,9 +83,9 @@ function UsersMenu() {
                   <ListItemText primary="Modificar mi perfil" />
                 </ListItemButton>
               </ListItem>
-              <Divider />
+              <Divider/>
 
-              <ListItem disablePadding>
+              <ListItem disablePadding component={Link} to="/createHouseAd" sx={{color: 'dark'}}>
                 <ListItemButton>
                   <ListItemIcon>
                     <OutboxOutlinedIcon sx={{color: 'dark'}} />
@@ -80,7 +93,7 @@ function UsersMenu() {
                   <ListItemText primary="Publicar un anuncio" />
                 </ListItemButton>
               </ListItem>
-              <Divider />
+              <Divider/>
 
               <ListItem disablePadding>
                 <ListItemButton>
