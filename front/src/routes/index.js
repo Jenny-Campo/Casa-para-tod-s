@@ -6,6 +6,9 @@ import HouseAdPage from '../pages/HouseAdPage'
 import HouseAdInfoPage from '../pages/HouseAdInfoPage'
 import UsersMenuPage from '../pages/UserMenuPage'
 import InfoAppPage from '../pages/InfoAppPage'
+import UpdateOwnProfilePage from '../pages/UpdateOwnProfilePage'
+import CreateHouseAdPage from '../pages/CreateHouseAdPage'
+import GetOwnProfilePage from '../pages/GetOwnProfilePage'
 
 export const router = createBrowserRouter([
     {path: '/', element: <Home/>},
@@ -15,5 +18,9 @@ export const router = createBrowserRouter([
     {path: '/houseInfo', element: <HouseAdInfoPage/>},
     {path: '/userMenu', element: <UsersMenuPage/>},
     {path: '/userMenu', element: <UsersMenuPage/>},
-    {path: '/infoApp', element: <InfoAppPage/> }
+    {path: '/infoApp', element: <InfoAppPage/> },
+    {path: '/getOwnProfile', element: <GetOwnProfilePage/> },
+    {path: '/updateProfile', element: <UpdateOwnProfilePage/> },
+    {path: '/createHouseAd', element: <CreateHouseAdPage/> }
+    
 ])

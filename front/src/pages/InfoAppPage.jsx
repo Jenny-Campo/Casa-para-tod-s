@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Box, Card, CardContent,  CardActionArea, CardActions, CardMedia, Typography, Button, ThemeProvider, createTheme, Grid } from '@mui/material';
-import HeaderLogged from '../components/HeaderLogged';
+import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco / dark=azul osc. /contrastText= amarillo)
@@ -32,7 +32,7 @@ const CARD = {
 function InfoAppPage() {
   return (
     <ThemeProvider theme={theme}>
-    <HeaderLogged/>
+    <Header/>
     <Box style={BACKGROUND}>
     <Grid container>
     <Grid item xs={12}> 

@@ -3,7 +3,7 @@ const { checkAuth } = require('../utils')
 
 const {
     getAllProvince,
-    findProvince
+    findProvince,
     //createProvince
 } = require('../controllers/province.controller')
 

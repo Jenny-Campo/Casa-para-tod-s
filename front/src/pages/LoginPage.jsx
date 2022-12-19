@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Button, Card, CardActions, CardContent, CardHeader, TextField, createTheme, Grid, InputAdornment, ThemeProvider } from  '@mui/material/';
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { loginService } from '../services/user'
+import { loginService } from '../services/authService'
 import { Email, Lock, VisibilityOff, Visibility } from '@mui/icons-material';
 import { Link } from 'react-router-dom'
 
@@ -110,7 +110,7 @@ function LoginPage() {
                     {/* <Box component="span" sx={{ p: 0, ml: '8px' }}>He olvidado mi contraseña</Box>  */}
                 
                     <CardActions  color='succes'  sx={{display: 'flex', justifyContent: 'flex-end'}}>
-                        <Button component={Link} to="/userMenu"variant="contained" sx={BUTTON1} onClick={() => login()}>Accede</Button>
+                        <Button component={Link} to="/userMenu" variant="contained" sx={BUTTON1} onClick={() => login()}>Accede</Button>
                     </CardActions>
                 </CardContent>
             </Grid>

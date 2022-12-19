@@ -1,7 +1,7 @@
-import api from "./api";
+import api from "./apiService";
 
 export const signupService = async (data) => {  // EN VIDEO PONE NOMBRE, EMAIL, CONTRASEÑA... pero en proyecto puso data, es correcto?? min. 33 del vídeo
-    console.log(data) 
+
     try{
         const result = await api.post('auth/signup', data)
         return result.data

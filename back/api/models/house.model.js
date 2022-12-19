@@ -7,24 +7,24 @@ const HouseAd = sequelize.define(
     houseType: {
       type: DataTypes.STRING,
       //type: DataTypes.ENUM('Piso', 'Casa'),
-      allowNull: false
+      // allowNull: false
     },
     totalRooms: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        // allowNull: false
     },
     totalWc: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        // allowNull: false
     },
     houseState: {
       type: DataTypes.STRING,
         //type: DataTypes.ENUM('Casi nuevo', 'Muy bueno', 'Bien', 'A reformar', 'Reformada'),
-        allowNull: false
+        // allowNull: false
     },
-    direcction: {
+    address: {
       type: DataTypes.STRING,
-      allowNull: false
+      // allowNull: false
     },
     // visibleDirecction: {
     //   type: DataTypes.BOOLEAN,
@@ -32,15 +32,15 @@ const HouseAd = sequelize.define(
     // },
     location: {
       type: DataTypes.STRING,
-      allowNull: false
+      // allowNull: false
     },
     rentalPrice: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      // allowNull: false
     },
     description: {
       type: DataTypes.TEXT,
-      allowNull: false
+      // allowNull: false
     }
   },
   { timestamps: false }
