@@ -93,7 +93,7 @@ function UsersMenu() {
                   <ListItemText primary="Publicar un anuncio" />
                 </ListItemButton>
               </ListItem>
-              <Divider />
+              <Divider/>
 
               <ListItem disablePadding>
                 <ListItemButton>
