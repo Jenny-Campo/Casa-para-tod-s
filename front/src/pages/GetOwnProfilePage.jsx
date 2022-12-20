@@ -41,19 +41,21 @@ const BUTTON1 = {
 
 function GetOwnProfilePage() {
 
-    const [name, setName] = useState('')
+    const [user, setUser] = useState('')
 
-    // let userProfile = ''
-    // useEffect(() => {
-    //     userProfile = getOwnProfile()
-    //     // setName(userProfile.name)
-    //     // console.log('name', name)
-    //     // console.log('resultado 2', userProfile)
-    // }, [])
+    async function getUser() {
+        setUser(await getOwnProfile())
+    }
 
-    // console.log('resultado', userProfile)
+    useEffect(() => {
+        getUser()
+    }, []);
+
+    console.log('resultado', user)
 
     return (
+
+
     <ThemeProvider theme={theme}>
         <HeaderLogged/>
             <Box style={BACKGROUND}>
@@ -69,89 +71,89 @@ function GetOwnProfilePage() {
                                 image="/señora.jpg"
                                 alt="Caser@"
                             />
-
+                            
                             <Typography gutterBottom variant="h6" component="div" color="dark" sx={{fontWeight: 'bold', marginTop: '20px'}}>
                                 Nombre y apellidos:
                             </Typography>
                             <Typography variant="body2" color="dark">
-                                {name}
-                            </Typography>
+                                {user.name}         
+                            </Typography>  
 
                             <Typography gutterBottom variant="h6" component="div" color="dark" sx={{fontWeight: 'bold', marginTop: '20px'}}>
                                 Edad:
                             </Typography>
                             <Typography variant="body2" color="dark">
-                                x
+                                {user.age}
                             </Typography>
 
                             <Typography gutterBottom variant="h6" component="div" color="dark" sx={{fontWeight: 'bold', marginTop: '20px'}}>
                                 Dirección:
                             </Typography>
                             <Typography variant="body2" color="dark">
-                                x
+                                {user.address}
                             </Typography>
 
                             <Typography gutterBottom variant="h6" component="div" color="dark" sx={{fontWeight: 'bold', marginTop: '20px'}}>
                                 Localidad:
                             </Typography>
                             <Typography variant="body2" color="dark">
-                                x
+                                {user.location}
                             </Typography>
 
                             <Typography gutterBottom variant="h6" component="div" color="dark" sx={{fontWeight: 'bold', marginTop: '20px'}}>
                                 Teléfono:
                             </Typography>
                             <Typography variant="body2" color="darkgray">
-                                x
+                                {user.PhoneNumber}
                             </Typography>
 
                             <Typography gutterBottom variant="h6" component="div" color="dark" sx={{fontWeight: 'bold', marginTop: '20px'}}>
                                 Información:
                             </Typography>
                             <Typography variant="body2" color="dark">
-                                x aqui el sobre ti
+                                {user.aboutYou}
                             </Typography>
 
                             <Typography gutterBottom variant="h6" component="div" color="dark" sx={{fontWeight: 'bold', marginTop: '20px'}}>
                                 Qué busco en la app:
                             </Typography>
                             <Typography variant="body2" color="dark">
-                                x looking for
+                                {user.lookingFor}
                             </Typography>
 
                             <Typography gutterBottom variant="h6" component="div" color="dark" sx={{fontWeight: 'bold', marginTop: '20px'}}>
                                 Hobbies:
                             </Typography>
                             <Typography variant="body2" color="darky">
-                                x
+                                {user.hobbies}
                             </Typography>
 
                             <Typography gutterBottom variant="h6" component="div" color="dark" sx={{fontWeight: 'bold', marginTop: '20px'}}>
                                 Información sobre consumo de tabaco:
                             </Typography>
                             <Typography variant="body2" color="dark">
-                                x
+                                {user.smoker}
                             </Typography>
 
                             <Typography gutterBottom variant="h6" component="div" color="dark" sx={{fontWeight: 'bold', marginTop: '20px'}}>
                                 Mascotas:
                             </Typography>
                             <Typography variant="body2" color="dark">
-                                x
+                                {user.pets}
                             </Typography>
 
                             <Typography gutterBottom variant="h6" component="div" color="dark" sx={{fontWeight: 'bold', marginTop: '20px'}}>
                                 Información laboral:
                             </Typography>
                             <Typography variant="body2" color="dark">
-                                x
+                                {user.employment}
                             </Typography>
 
                             <Typography gutterBottom variant="h6" component="div" color="dark" sx={{fontWeight: 'bold', marginTop: '20px'}}>
                                 Normas de la casa:
                             </Typography>
                             <Typography variant="body2" color="dark">
-                                x
+                                {user.houseRules}
                             </Typography>
 
                             <Typography gutterBottom variant="h6" component="div" color="dark" sx={{fontWeight: 'bold', marginTop: '20px'}}>

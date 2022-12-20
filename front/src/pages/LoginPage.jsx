@@ -109,7 +109,7 @@ function LoginPage() {
                     />
                     {/* <Box component="span" sx={{ p: 0, ml: '8px' }}>He olvidado mi contraseña</Box>  */}
                 
-                    <CardActions  color='succes'  sx={{display: 'flex', justifyContent: 'flex-end'}}>
+                    <CardActions   sx={{display: 'flex', justifyContent: 'flex-end'}}>
                         <Button component={Link} to="/userMenu" variant="contained" sx={BUTTON1} onClick={() => login()}>Accede</Button>
                     </CardActions>
                 </CardContent>
