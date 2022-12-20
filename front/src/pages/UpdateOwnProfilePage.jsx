@@ -76,24 +76,6 @@ function UpdateOwnProfilePage() {
             rules,
             roommate
         }
-
-        console.log('hola')
-        // if (password === password2){
-        //     const response = await signupService(user)
-            
-        //     if(response.error) {
-        //         alert('usuario o contraseña erróneo')  //OJO, HAY QUE HACER UN COMPONENTE PARA ESTO
-        //     } else { 
-        //         localStorage.setItem('email', response.email)
-        //         localStorage.setItem('token', response.token)  // con esto tendríamos el token guardado
-        //         navigate('/userMenu')
-        //     }
-
-
-        // } else {
-        //     alert('usuario o contraseña erróneo')
-        // }
-
     }
 
     return (

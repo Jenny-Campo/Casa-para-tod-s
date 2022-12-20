@@ -37,15 +37,15 @@ const BUTTON1 = {                 // OJOOO, no consigo que quede alineado con el
 
 function RegisterPage() {
 
-    const [name, setName] = useState()
-    const [surname, setSurname] = useState()
+    const [name, setName] = useState('')
+    const [surname, setSurname] = useState('')
     const [age, setAge] = useState()
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
     const [password2, setPassword2] = useState()
     const [address, setAddress] = useState()
     const [location, setLocation] = useState()
-    const [province, setProvince] = useState()          
+    const [province, setProvince] = useState('')          
     const [phoneNumber, setPhoneNumber] = useState()
     const [aboutYou, setAboutYou] = useState()
     const [lookingFor, setLookingFor] = useState()
@@ -102,20 +102,17 @@ function RegisterPage() {
         setProvince(e.target.value)
     }
 
-    console.log('Provincia elegida: ', province)
-
     const [provinces, setProvinces] = useState([]) //el conjunto de todas las provincias
 
+    async function getAllProvinces() {
+        setProvinces(await provinceService())
+    }
+
     useEffect(() => {
-        async function getAllProvinces() {
-            setProvinces(await provinceService())
-        }
         getAllProvinces()
-        console.log('provinces', provinces)
-    }, [])
+    }, []);
 
-    console.log('resultado', provinces)
-
+    
     return (
 
         <ThemeProvider theme={theme}>
@@ -190,37 +187,28 @@ function RegisterPage() {
                             sx={{marginBottom: '20px'}}
                             value={location} onChange={(e) => setLocation(e.target.value)}
                         />
-                        {/* <TextField
-                            label="Provincia"
-                            type="string"
-                            variant="outlined"
-                            fullWidth
-                            sx={{marginBottom: '20px'}}
-                            value={province} onChange={(e) => setProvince(e.target.value)}
-                        /> */}
 
-                            <FormControl fullWidth sx={{marginBottom: '20px'}}>
-                                <InputLabel id="demo-simple-select-label">Provincia</InputLabel>
-                                <Select
-                                    labelId="demo-simple-select-label"
-                                    id="demo-simple-select"
-                                    value={province}
-                                    label="Age"
-                                    onChange={handleChange}
-                                    >{/*value={provincia} */}
-                                {/* <MenuItem value={'Las palmas'}>Las Palmas</MenuItem>
-                                <MenuItem value={43}>Santa Cruz de Tenerife</MenuItem>
-                                <MenuItem value={29}>Madrid</MenuItem> */}
-                                    {provinces.map((province) => {
-                                        <MenuItem
-                                            key={province.id}
-                                            value={province.name}
-                                        >
-                                            {province.name}
-                                        </MenuItem>
-                                    })}
-                                </Select>
-                            </FormControl>
+                        <FormControl fullWidth sx={{marginBottom: '20px'}}>
+                            <InputLabel id="demo-simple-select-label">Provincia</InputLabel>
+                            <Select
+                                labelId="province-select-label"
+                                id="provinces-select"
+                                value={province}
+                                label="Provincia"
+                                onChange={handleChange}
+                            >
+                                {provinces && provinces.map((province) => {
+                                    return (
+                                    <MenuItem
+                                        key={province.id}
+                                        value={province.name}
+                                    >
+                                        {province.name}
+                                    </MenuItem>
+                                    )
+                                })}
+                            </Select>
+                        </FormControl>
 
                         <TextField
                             label="Teléfono"
