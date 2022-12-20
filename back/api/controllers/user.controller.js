@@ -44,9 +44,23 @@ async function deleteOwnProfile (req, res) {
     }
 }
 
+async function getUserById (req, res) {
+    try {
+        const user = await User.findByPk(req.params.id, {
+            attributes: {
+                exclude: ['password']
+            }
+        })
+        return !user ? res.status(404).send('No user found') : res.status(200).json(user)
+    } catch (error) {
+        return res.status(500).send(error.message)
+    }
+}
+
 
 module.exports = {
     getOwnProfile,
     updateOwnProfile,
-    deleteOwnProfile
+    deleteOwnProfile,
+    getUserById
 }

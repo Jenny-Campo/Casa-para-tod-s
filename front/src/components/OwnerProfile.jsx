@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Card, CardContent, CardMedia, Typography, createTheme, ThemeProvider, Grid } from '@mui/material'
+import axios from 'axios'
+import { useParams } from 'react-router'
 
 const CARD = {  
     width: 1200,
@@ -22,6 +24,22 @@ const CARD = {
    })
 
 function OwnerProfile() {
+
+    const [user, setUser] = useState({})
+    const {id} = useParams('id')
+
+    const search = async() => {
+        await axios.get(`http://localhost:2222/api/user/profile/${id}`)
+        .then(response => {setUser(response.data)})
+        .catch(error => {
+            console.log(error)
+        })
+    }
+
+    useEffect(() => {
+        search()
+    },[])
+    
   return (
     <ThemeProvider theme={theme}>
     <Grid container>
@@ -38,31 +56,34 @@ function OwnerProfile() {
                 <Grid xs={6}>
                 <CardContent>
                 <Typography variant="h6" component="div">
-                    Descripción
+                    { user.name } { user.surname }
                 </Typography>
                 <Typography variant="h6" component="div">
-                    Que busca en la APP
+                    { user.aboutYou }
                 </Typography>
                 <Typography variant="h6" component="div">
-                    Tiempo libre
+                    { user.lookingFor }
                 </Typography>
                 <Typography variant="h6" component="div">
-                    Fumador
+                    { user.hobbies }
                 </Typography>
                 <Typography variant="h6" component="div">
-                    Mascotas
+                    { user.smoker }
                 </Typography>
                 <Typography variant="h6" component="div">
-                    Trabajas/Jubilado
+                    { user.pets }
                 </Typography>
                 <Typography variant="h6" component="div">
-                    Normas en casa
+                    { user.emplyment }
                 </Typography>
                 <Typography variant="h6" component="div">
-                    Opciones para compartir
+                    { user.rules }
                 </Typography>
                 <Typography variant="h6" component="div">
-                    Número de teléfono
+                    { user.roommate }
+                </Typography>
+                <Typography variant="h6" component="div">
+                    { user.phoneNumber }
                 </Typography>
                 </CardContent>
                 </Grid>

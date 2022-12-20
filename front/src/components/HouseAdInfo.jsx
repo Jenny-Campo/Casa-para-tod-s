@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Card, ThemeProvider, createTheme, ImageList, ImageListItem, CardContent, Typography, Button, Grid, CardActions, CardMedia } from '@mui/material'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
+import axios from 'axios'
 
 const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco / dark=azul osc. /contrastText= amarillo)
   palette: {
@@ -11,7 +12,97 @@ const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco 
   }
  })
 
- const itemData = [
+const CARD = {  
+  width: 1200,
+  backgroundColor: '#C9E4EB',
+  margin: '20px auto',
+  display: 'flex',
+  borderRadius: 10,
+  marginTop: '20px',
+  color:'dark',
+  justifyContent:'space-between'
+}
+
+
+function HouseAdInfo() {
+
+  const [house, setHouse] = useState({})
+  const {id} = useParams('id')
+  
+  const search = async() => {
+    await axios.get(`http://localhost:2222/api/house/ad/${id}`)
+    .then(response => {setHouse(response.data)})
+    .catch(error => {
+      console.log(error)
+    })
+  }
+
+  useEffect(() => {
+    search()
+  },[])
+
+  return (
+    <ThemeProvider theme={theme}>
+      <Grid container>
+        <Grid item xs={12}>
+      <Card sx={ CARD }>
+        <Grid xs={6}>
+          <CardContent>
+            <Typography variant="h3" component="div">
+              { house.location }, { house.address }
+            </Typography>
+            <Typography variant="h4" component="div">
+              { house.houseType }, { house.houseState }
+            </Typography>
+            <Typography variant="h4" component="div">
+              Baños: { house.totalWc }
+            </Typography>
+            <Typography variant="h4" component="div">
+              Habitaciones: { house.totalRooms }
+            </Typography>
+            <Typography variant="h5" component="div">
+              { house.rentalPrice }€/mes
+            </Typography>
+            <Typography variant="h5" component="div">
+              { house.description }
+            </Typography>
+            <CardActions sx={{ display: 'flex', marginTop:'155px' }}>
+            <Button variant="outlined">
+              Enviar mensajes
+            </Button>
+            <Button component={Link} to={`/ownerprofile/${id}`} variant="outlined" sx={{ marginLeft:'12px' }}>
+              Ver perfil del caser@
+            </Button>
+            </CardActions>
+          </CardContent>
+          </Grid>
+          <Grid xs={6}>
+            <CardMedia>
+          <ImageList sx={{ width: 500, height: 450 }} variant="woven" cols={3} gap={1}>
+      {itemData.map((item) => (
+        <ImageListItem key={item.img}>
+          <img
+            src={`${item.img}?w=161&fit=crop&auto=format`}
+            srcSet={`${item.img}?w=161&fit=crop&auto=format&dpr=2 2x`}
+            alt={item.title}
+            loading="lazy"
+          />
+          </ImageListItem>
+      ))}
+        </ImageList>
+      </CardMedia>
+      </Grid>
+      </Card>
+      </Grid>
+      </Grid>
+    </ThemeProvider>
+  )
+}
+
+export default HouseAdInfo
+
+
+const itemData = [
   {
     img: 'https://images.unsplash.com/photo-1549388604-817d15aa0110',
     title: 'Bed',
@@ -61,78 +152,3 @@ const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco 
     title: 'Blinds',
   },
 ];
-
-const CARD = {  
-  width: 1200,
-  backgroundColor: '#C9E4EB',
-  margin: '20px auto',
-  display: 'flex',
-  borderRadius: 10,
-  marginTop: '20px',
-  color:'dark',
-  justifyContent:'space-between'
-  // align: 'center',
-  // justify: 'center',
-}
-
-
-function HouseAdInfo({location, direcction, description, rentalPrice}) {
-  return (
-    <ThemeProvider theme={theme}>
-      <Grid container>
-        <Grid item xs={12}>
-      <Card sx={ CARD }>
-        <Grid xs={6}>
-          <CardContent>
-            <Typography variant="h3" component="div">
-              Madrid, Gran Vía
-            </Typography>
-            <Typography variant="h4" component="div">
-              Piso, Casi nuevo
-            </Typography>
-            <Typography variant="h4" component="div">
-              Baños: 2
-            </Typography>
-            <Typography variant="h4" component="div">
-              Habitaciones: 4
-            </Typography>
-            <Typography variant="h5" component="div">
-              400€/mes
-            </Typography>
-            <Typography variant="h5" component="div">
-              Descripción
-            </Typography>
-            <CardActions sx={{ position: 'absolute', display: 'flex', justifyContent: 'space-between', bottom:'0', left:'0' }}>
-            <Button variant="outlined">
-              Enviar mensajes
-            </Button>
-            <Button component={Link} to="/ownerprofile" variant="outlined" sx={{ marginLeft:'12px' }}>
-              Ver perfil del caser@
-            </Button>
-            </CardActions>
-          </CardContent>
-          </Grid>
-          <Grid xs={6}>
-            <CardMedia>
-          <ImageList sx={{ width: 500, height: 450 }} variant="woven" cols={3} gap={1}>
-      {itemData.map((item) => (
-        <ImageListItem key={item.img}>
-          <img
-            src={`${item.img}?w=161&fit=crop&auto=format`}
-            srcSet={`${item.img}?w=161&fit=crop&auto=format&dpr=2 2x`}
-            alt={item.title}
-            loading="lazy"
-          />
-          </ImageListItem>
-      ))}
-        </ImageList>
-      </CardMedia>
-      </Grid>
-      </Card>
-      </Grid>
-      </Grid>
-    </ThemeProvider>
-  )
-}
-
-export default HouseAdInfo

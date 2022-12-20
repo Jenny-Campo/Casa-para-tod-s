@@ -5,7 +5,7 @@ async function registerOwnAd (req, res) {
     try {
         const user = await User.findByPk(res.locals.user.id)
         const add = await user.createHouseAd(req.body, {
-            fields: ['houseType', 'totalRooms', 'totalWc', 'houseState', 'direcction', 'location', 'rentalPrice', 'description']
+            fields: ['houseType', 'totalRooms', 'totalWc', 'houseState', 'address', 'location', 'rentalPrice', 'description']
         })
         return res.status(200).json({message: 'New ad registered', add:add})
     } catch (error) {
@@ -59,10 +59,20 @@ async function getOwnAd (req, res) {
     }
 }
 
+async function getAdByUserId (req, res) {
+    try {
+        const add = await HouseAd.findByPk(req.params.id)
+        return !add ? res.status(404).send('This user has no adds') : res.status(200).json(add)
+    } catch (error) {
+        return res.status(500).send(error.message)
+    }
+}
+
 
 module.exports = {
     registerOwnAd,
     updateOwnAd,
     deleteOwnAd,
-    getOwnAd
+    getOwnAd,
+    getAdByUserId
 }
