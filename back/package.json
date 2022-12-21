@@ -1,0 +1,31 @@
+{
+  "name": "casa-para-todos",
+  "version": "1.0.0",
+  "description": "![](https://github.com/Jenny-Campo/Casa-para-todos/commit/472786918e6ede1d48793c790cf9ae273f9d24f3#r92078339) ### CASA PARA TOD@S",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jenny-Campo/Casa-para-todos.git"
+  },
+  "author": "@Jenny-Campo, @AlbertoMG91",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jenny-Campo/Casa-para-todos/issues"
+  },
+  "homepage": "https://github.com/Jenny-Campo/Casa-para-todos#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.20",
+    "pg": "^8.8.0",
+    "react-router-dom": "^6.4.5",
+    "sequelize": "^6.26.0"
+  }
+}
