@@ -6,7 +6,6 @@ const HouseAd = sequelize.define(
   {
     houseType: {
       type: DataTypes.STRING,
-      //type: DataTypes.ENUM('Piso', 'Casa'),
       // allowNull: false
     },
     totalRooms: {
@@ -19,17 +18,13 @@ const HouseAd = sequelize.define(
     },
     houseState: {
       type: DataTypes.STRING,
-        //type: DataTypes.ENUM('Casi nuevo', 'Muy bueno', 'Bien', 'A reformar', 'Reformada'),
         // allowNull: false
     },
     address: {
       type: DataTypes.STRING,
       // allowNull: false
     },
-    // visibleDirecction: {
-    //   type: DataTypes.BOOLEAN,
-    //   allowNull: false,
-    // },
+
     location: {
       type: DataTypes.STRING,
       // allowNull: false

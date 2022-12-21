@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import getOwnProfile from '../services/userService';
 
 
-const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco / dark=azul osc. /contrastText= amarillo)
+const theme = createTheme({ 
     palette: {
       light: '#C9E4EB',
       main: '#F1FAFC',
@@ -16,7 +16,7 @@ const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco 
 })
 
 const BACKGROUND = {
-    height: 3000,
+    height: 1700,
     backgroundColor: '#C9E4EB',
     margin: '0 auto',
 }
@@ -24,7 +24,7 @@ const BACKGROUND = {
 const CARD = {         
     width: '750px',
     height: '1500',
-    margin: '20px auto', // 2 valores aplica ariba-abajo, y der.-izq.
+    margin: '20px auto', 
     display: 'flex',
     justify: 'center',
     align:'center',
@@ -51,7 +51,7 @@ function GetOwnProfilePage() {
         getUser()
     }, []);
 
-    console.log('resultado', user)
+   
 
     return (
 
@@ -153,14 +153,14 @@ function GetOwnProfilePage() {
                                 Normas de la casa:
                             </Typography>
                             <Typography variant="body2" color="dark">
-                                {user.houseRules}
+                                {user.rules}
                             </Typography>
 
                             <Typography gutterBottom variant="h6" component="div" color="dark" sx={{fontWeight: 'bold', marginTop: '20px'}}>
                                 Compañer@s ideales:
                             </Typography>
                             <Typography variant="body2" color="dark">
-                                x
+                                {user.roommate}
                             </Typography>
 
                             <CardActions sx={{display: 'flex', justifyContent: 'flex-end'}}>

@@ -6,7 +6,7 @@ const User = sequelize.define(
   {
     name: {
       type: DataTypes.STRING,
-      // allowNull: false     // le quito la obligatoriedad a todo, para probar en el front
+      // allowNull: false   
     },
     surname: {
       type: DataTypes.STRING,
@@ -77,7 +77,6 @@ const User = sequelize.define(
     },
     role: {
       type: DataTypes.STRING,
-      //type: DataTypes.ENUM(['user', 'admin']),
       defaultValue: 'user'
     }
   },

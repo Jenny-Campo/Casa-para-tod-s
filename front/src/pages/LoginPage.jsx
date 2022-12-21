@@ -7,14 +7,12 @@ import { Email, Lock, VisibilityOff, Visibility } from '@mui/icons-material';
 import { Link } from 'react-router-dom'
 
 
-{/* OJOOOOOOO, pte. mejorar la posición del botón */}
-
 const theme = createTheme({ 
     palette: {
-      light: '#C9E4EB', // azul claro
-      main: '#F1FAFC', // blanco roto
-      dark: '#004A94', //azul oscuro
-      constrastText: '#F7F9A7' // amarillo
+      light: '#C9E4EB', 
+      main: '#F1FAFC', 
+      dark: '#004A94', 
+      constrastText: '#F7F9A7' 
     }
 }) 
 
@@ -22,17 +20,16 @@ const BACKGROUND = {
     height: 2000,
     backgroundColor: '#C9E4EB',
     margin: '0 auto',
-    // paddingRight: '30%',
-    // paddingLeft: '30%',
+
 }
 
-const CARD = {         //ojo, aquí no coge los nombres de los colores, solo los números
+const CARD = {         
     width: '500px',
-    margin: '20px auto', // 2 valores aplica ariba-abajo, y der.-izq.
+    margin: '20px auto', 
     backgroundColor: '#F1FAFC', 
 }
 
-const BUTTON1 = {                 // OJOOO, no consigo que quede alineado con el final del último cajón
+const BUTTON1 = {                 
     backgroundColor: '#004A94',
     color: '#F7F9A7',
     borderRadius: 50
@@ -41,7 +38,7 @@ const BUTTON1 = {                 // OJOOO, no consigo que quede alineado con el
 
 function LoginPage() {
 
-    const [ showPassword, setShowPassword ] = useState(false); {/*valor inicial falso*/}
+    const [ showPassword, setShowPassword ] = useState(false); 
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
 
@@ -55,7 +52,7 @@ function LoginPage() {
 
         try {
             const {data} = await loginService(user)
-            console.log('data de loginservice:', data)
+            
             localStorage.setItem('email', user.email)
             localStorage.setItem('token', data.token)
         } catch (e) {
@@ -64,8 +61,6 @@ function LoginPage() {
     }
     
   return (
-
-    //OJOOO, PTE. HACER LO DE OLVIDÓ SU CONTRASEÑA (VIDEO MUI 1), también que quede la card centrada
 
     <ThemeProvider theme={theme}>
         <Box style={BACKGROUND}>
@@ -100,14 +95,13 @@ function LoginPage() {
                                 </InputAdornment>
                             ),
                             endAdornment: (
-                                <InputAdornment position='end' onClick={() => { setShowPassword((current) => !current)}}> {/*asignamos lo contrario de lo q tenga showPassword*/}
-                                    { showPassword ? <Visibility/> : <VisibilityOff/> } {/* si showPassword es verdadero, cargo on, sino off*/}
+                                <InputAdornment position='end' onClick={() => { setShowPassword((current) => !current)}}> 
+                                    { showPassword ? <Visibility/> : <VisibilityOff/> } 
                                 </InputAdornment>
                             )
                         }}
                         value={password} onChange={(e) => setPassword(e.target.value)}
                     />
-                    {/* <Box component="span" sx={{ p: 0, ml: '8px' }}>He olvidado mi contraseña</Box>  */}
                 
                     <CardActions   sx={{display: 'flex', justifyContent: 'flex-end'}}>
                         <Button component={Link} to="/userMenu" variant="contained" sx={BUTTON1} onClick={() => login()}>Accede</Button>

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Box, Container, Grid, Typography, ThemeProvider, createTheme, CardActions, CardMedia, CardActionArea, Card } from '@mui/material';
+import { Box, Container, Grid, Typography, ThemeProvider, createTheme, CardMedia, Card } from '@mui/material';
 import { useState } from 'react';
 
-const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco / dark=azul osc. /contrastText= amarillo)
+const theme = createTheme({ 
     palette: {
       light: '#C9E4EB',
       main: '#F1FAFC',
@@ -16,7 +16,7 @@ function Footer() {
         ['Contacto', 'Aviso Legal', 'Protección de datos', 'Política de cookies']
     ])
 
-    return ( //PTE. conseguir poner las letras a la derecha y poner logo a la izquierda, Y QUE SE VEA EL LOGO!!!!!
+    return ( 
         <footer> 
             <ThemeProvider theme={theme}> 
             <Box sx={{ flexGrow: 1  }} position={'static'} bgcolor='main' color='dark' padding={1} paddingBottom={0}>
@@ -30,7 +30,7 @@ function Footer() {
                         alt="People sharing a cake"
                         />
                     </Card>
-                <Grid/>  {/* ojoooo no consigo que la imagen sea responsive */}
+                <Grid/> 
                 <Box paddingBottom={4}>
                     { links && links.map((section, idx) => {
                         return (<Grid item xs={12} key={idx}> {

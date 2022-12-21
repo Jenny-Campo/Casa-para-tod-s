@@ -1,5 +1,6 @@
 const HouseAd = require ('../models/house.model')
 const User = require ('../models/user.model')
+const Province = require ('../models/province.model')
 
 async function registerOwnAd (req, res) {
     try {
@@ -7,6 +8,12 @@ async function registerOwnAd (req, res) {
         const add = await user.createHouseAd(req.body, {
             fields: ['houseType', 'totalRooms', 'totalWc', 'houseState', 'address', 'location', 'rentalPrice', 'description']
         })
+        
+        const province = await Province.findOne({
+            where: {name: req.body.province}
+        })
+        await province.addHouseAd(add)
+
         return res.status(200).json({message: 'New ad registered', add:add})
     } catch (error) {
         return res.status(500).send(error.message)
@@ -48,7 +55,7 @@ async function deleteOwnAd (req, res) {
 
 async function getOwnAd (req, res) {
     try {
-        const add = await HouseAd.findAll({
+        const add = await HouseAd.findOne({
             where: {
                 userId: res.locals.user.id
             }

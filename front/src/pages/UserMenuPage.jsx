@@ -8,11 +8,10 @@ import InboxOutlinedIcon from '@mui/icons-material/InboxOutlined';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import Footer from '../components/Footer';
-import GetOwnProfilePage from './GetOwnProfilePage';
 import { Link } from 'react-router-dom'
 
 
-const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco / dark=azul osc. /contrastText= amarillo)
+const theme = createTheme({ 
   palette: {
     light: '#C9E4EB',
     main: '#F1FAFC',
@@ -27,14 +26,6 @@ const BACKGROUND = {
   
 }
 
-const CARD = {         //ojo, aquí no coge los nombres de los colores, solo los números
-  width: '900px',
-  margin: '20px auto', // 2 valores aplica ariba-abajo, y der.-izq.
-  display: 'flex',
-  justify: 'center',
-  backgroundColor: '#F1FAFC',  // en sx sería bgColor
-  '@media print': {width: 300}
-}
 
 function UsersMenu() {
 
@@ -48,7 +39,7 @@ function UsersMenu() {
       <Grid item xs={12}>
       <Container fluid="true">
 
-        <Card sx={{ width: '500px', height: '300px', margin: '20px auto' }}> {/* OJOOO, NO CONSIGO QUE LA FOTO SEA RESPONSIVE !! */}
+        <Card sx={{ width: '500px', height: '300px', margin: '20px auto' }}>
           <CardActionArea>
             <CardMedia
               component="img"
@@ -95,7 +86,7 @@ function UsersMenu() {
               </ListItem>
               <Divider/>
 
-              <ListItem disablePadding>
+              <ListItem disablePadding component={Link} to="/getOwnHouseAd" sx={{color: 'dark'}}>
                 <ListItemButton>
                   <ListItemIcon>
                     <InboxOutlinedIcon sx={{color: 'dark'}} />

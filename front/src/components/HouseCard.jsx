@@ -7,7 +7,7 @@ import { Button, ThemeProvider, createTheme, CardActions } from '@mui/material';
 import { Link } from 'react-router-dom'
 
 
-const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco / dark=azul osc. /contrastText= amarillo)
+const theme = createTheme({ 
   palette: {
     light: '#C9E4EB',
     main: '#F1FAFC',

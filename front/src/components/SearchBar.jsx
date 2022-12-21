@@ -5,17 +5,17 @@ import axios from 'axios';
 import { Link } from 'react-router-dom'
 import { Context } from '../App';
 
-const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco / dark=azul osc. /contrastText= amarillo)
+const theme = createTheme({
     palette: {
       light: '#C9E4EB',
       main: '#F1FAFC',
       dark: '#004A94',
       constrastText: '#F7F9A7',
-    //   success: '#6CACCF' = azul medio, pero ya no se pueden meter más opciones en la paleta custom
+    
     }
 })
 
-const CARD = {  // ESTILADO DE LA CARD
+const CARD = { 
     height: 200,
     width: '90%',
     backgroundColor: '#004A94',
@@ -23,7 +23,7 @@ const CARD = {  // ESTILADO DE LA CARD
     borderRadius: 20
 }
 
-const SEARCHBUTTON = { // botón dentro del que va la searchBar. Es una mierda, pedir ayuda a Álvaro para ponerlo de otra forma.
+const SEARCHBUTTON = { 
     marginBottom: '10px',
     marginLeft: '20px',
     backgroundColor: '#C9E4EB',
@@ -64,7 +64,7 @@ function SearchBar() {
     <ThemeProvider theme={theme}>
     <Box sx={{ flexGrow: 1, margin: '20px'}}>
     <Grid container>
-    <Grid item xs={12}> {/* preguntar como podemos hacer para que cambien los tamaños de las cosas cuando se hace más pequeña la pantalla */}
+    <Grid item xs={12}> 
         <Card style={CARD} position="static">
             <CardContent >
                 <CardHeader title="Encuentra casa compartida" sx={{backgroundColor: '#004A94', color: 'constrastText'}} />

@@ -3,7 +3,7 @@ import { Card, ThemeProvider, createTheme, ImageList, ImageListItem, CardContent
 import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
 
-const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco / dark=azul osc. /contrastText= amarillo)
+const theme = createTheme({ 
   palette: {
     light: '#C9E4EB',
     main: '#F1FAFC',

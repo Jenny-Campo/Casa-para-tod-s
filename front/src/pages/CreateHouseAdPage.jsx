@@ -1,14 +1,15 @@
 import {React, useEffect} from 'react'
-import { Box, Button, Card, CardActions, CardContent, CardHeader, TextField, Icons, createTheme, Grid, ThemeProvider, FormControl, InputLabel, Select, MenuItem } from  '@mui/material/';
+import { Box, Button, Card, CardActions, CardContent, CardHeader, TextField, createTheme, Grid, ThemeProvider, FormControl, InputLabel, Select, MenuItem } from  '@mui/material/';
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import HeaderLogged from '../components/HeaderLogged';
 import Footer from '../components/Footer';
 import provinceService from '../services/provinceService';
-import createHouseAdService from '../services/houseService';
+import {createHouseAdService} from '../services/houseService';
 
 
-const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco / dark=azul osc. /contrastText= amarillo)
+
+const theme = createTheme({ 
     palette: {
       light: '#C9E4EB',
       main: '#F1FAFC',
@@ -25,7 +26,7 @@ const BACKGROUND = {
 
 const CARD = {         
     width: '900px',
-    margin: '20px auto', // 2 valores aplica ariba-abajo, y der.-izq.
+    margin: '20px auto',
     display: 'flex',
     justify: 'center',
     align:'center',
@@ -65,7 +66,7 @@ function CreateHouseAdPage() {
             rentalPrice,
             description
         }
-
+        
         const response = await createHouseAdService(ad)
         navigate('/userMenu')
 
@@ -76,7 +77,7 @@ function CreateHouseAdPage() {
             setProvince(e.target.value)
         }
     
-        const [provinces, setProvinces] = useState([]) //el conjunto de todas las provincias
+        const [provinces, setProvinces] = useState([]) 
     
         async function getAllProvinces() {
             setProvinces(await provinceService())
@@ -107,8 +108,8 @@ function CreateHouseAdPage() {
                             label="Tipo de vivienda"
                             value={houseType} onChange={(e) => setHouseType(e.target.value)}
                         >
-                            <MenuItem value={1}>Piso</MenuItem>
-                            <MenuItem value={2}>Casa</MenuItem>
+                            <MenuItem value={'Piso'}>Piso</MenuItem>
+                            <MenuItem value={'Casa'}>Casa</MenuItem>
                         </Select>
                     </FormControl>
 
@@ -125,7 +126,7 @@ function CreateHouseAdPage() {
                             <MenuItem value={3}>3</MenuItem>
                             <MenuItem value={4}>4</MenuItem>
                             <MenuItem value={5}>5</MenuItem>
-                            <MenuItem value={6}>6 o más</MenuItem>
+                            <MenuItem value={'seis o más'}>6 o más</MenuItem>
                         </Select>
                     </FormControl>
 
@@ -152,11 +153,11 @@ function CreateHouseAdPage() {
                             label="Estado de la vivienda"
                             value={houseState} onChange={(e) => setHouseState(e.target.value)}
                         >
-                            <MenuItem value={1}>Casi nueva</MenuItem>
-                            <MenuItem value={2}>Muy bien</MenuItem>
-                            <MenuItem value={3}>Bien</MenuItem>
-                            <MenuItem value={4}>A reformar</MenuItem>
-                            <MenuItem value={5}>Reformada</MenuItem>
+                            <MenuItem value={'Casi nueva'}>Casi nueva</MenuItem>
+                            <MenuItem value={'Muy bien'}>Muy bien</MenuItem>
+                            <MenuItem value={'Bien'}>Bien</MenuItem>
+                            <MenuItem value={'A reformar'}>A reformar</MenuItem>
+                            <MenuItem value={'Reformada'}>Reformada</MenuItem>
                         </Select>
                     </FormControl>
 

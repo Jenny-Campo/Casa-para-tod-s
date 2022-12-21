@@ -1,12 +1,10 @@
 import React from 'react';
-import { Box, Button, Card, CardActions, CardContent, CardHeader, TextField, Icons, createTheme, Grid, ThemeProvider  } from  '@mui/material/';
+import { Box, Button, Card, CardActions, CardContent, CardHeader, TextField, createTheme, Grid, ThemeProvider  } from  '@mui/material/';
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import HeaderLogged from '../components/HeaderLogged';
-//import { userService } from '../services/User'
 
-
-const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco / dark=azul osc. /contrastText= amarillo)
+const theme = createTheme({ 
     palette: {
       light: '#C9E4EB',
       main: '#F1FAFC',
@@ -23,14 +21,14 @@ const BACKGROUND = {
 
 const CARD = {         
     width: '900px',
-    margin: '20px auto', // 2 valores aplica ariba-abajo, y der.-izq.
+    margin: '20px auto', 
     display: 'flex',
     justify: 'center',
     align:'center',
     backgroundColor: '#F1FAFC'
 }
 
-const BUTTON1 = {                 // OJOOO, no consigo que quede alineado con el final del último cajón
+const BUTTON1 = { 
     backgroundColor: '#004A94',
     color: '#F7F9A7',
     borderRadius: 50
@@ -43,7 +41,6 @@ function UpdateOwnProfilePage() {
     const [age, setAge] = useState()
     const [address, setAddress] = useState()
     const [location, setLocation] = useState()
-    // const [province, setProvince] = useState()          // ojooooo, FALTA VER COMO VAMOS A HACER ESTO...  ¡¡ PROVINCIAS !!
     const [phoneNumber, setPhoneNumber] = useState()
     const [aboutYou, setAboutYou] = useState()
     const [lookingFor, setLookingFor] = useState()
@@ -51,7 +48,6 @@ function UpdateOwnProfilePage() {
     const [smoker, setSmoker] = useState()
     const [pets, setPets] = useState()
     const [employment, setEmployment] = useState()
-    //const [photo, setPhoto] = useState()            --- ALVARO dice que lo dejemos sin hacer por ahora
     const [rules, setRules] = useState()
     const [roommate, setRoommate] = useState()
     
@@ -65,7 +61,6 @@ function UpdateOwnProfilePage() {
             age,
             address,
             location,
-            // province,
             phoneNumber,
             aboutYou,
             lookingFor,
@@ -84,7 +79,7 @@ function UpdateOwnProfilePage() {
         <HeaderLogged/>
             <Box style={BACKGROUND}>
             <Grid container>
-            <Grid item xs={12} md={12}> {/* preguntar como podemos hacer para que cambien los tamaños de las cosas cuando se hace más pequeña la pantalla */}
+            <Grid item xs={12} md={12}> 
                 <Card sx={CARD}>
                     <CardContent>
                         <CardHeader title="Modifica tu perfil" sx={{backgroundColor: 'dark', color: 'constrastText', borderRadius: 1, marginBottom: '20px' }} />
@@ -129,14 +124,6 @@ function UpdateOwnProfilePage() {
                             sx={{marginBottom: '20px'}}
                             value={location} onChange={(e) => setLocation(e.target.value)}
                         />
-                        {/* <TextField
-                            label="Provincia"
-                            type="string"
-                            variant="outlined"
-                            fullWidth
-                            sx={{marginBottom: '20px'}}
-                            value={province} onChange={(e) => setProvince(e.target.value)}
-                        /> */}
                         <TextField
                             label="Teléfono"
                             type="integer"
@@ -211,7 +198,7 @@ function UpdateOwnProfilePage() {
                         />
 
                         <CardActions  color='succes'  sx={{display: 'flex', justify: 'end'}}>
-                            <Button variant="contained" sx={BUTTON1} onClick={() => profile()}>  {/*component={Link} to="/userMenu"*/}
+                            <Button variant="contained" sx={BUTTON1} onClick={() => profile()}> 
                                 Continuar
                             </Button>
                         </CardActions>
