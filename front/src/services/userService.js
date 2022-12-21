@@ -11,7 +11,7 @@ import api from "./apiService"
     }
 }
 
-export async function getOwnerProfile() {
+export async function getOwnerProfile(id) {
     try{
         const { data } = await api.get(`user/profile/${id}`, { headers: { token: localStorage.getItem('token')}})
         return data
