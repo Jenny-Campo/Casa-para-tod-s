@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import { Box, Grid, ThemeProvider, createTheme } from '@mui/material';
 
 
-const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco / dark=azul osc. /contrastText= amarillo)
+const theme = createTheme({ 
   palette: {
     light: '#C9E4EB',
     main: '#F1FAFC',

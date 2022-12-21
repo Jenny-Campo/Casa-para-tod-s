@@ -1,5 +1,4 @@
 import React from 'react'
-//import useState from 'react'
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import SearchBar from '../components/SearchBar';
@@ -7,7 +6,7 @@ import WelcomeCard from '../components/WelcomeCard';
 import { Box, ThemeProvider, createTheme, Container, Grid } from '@mui/material';
 
 
-const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco / dark=azul osc. /contrastText= amarillo)
+const theme = createTheme({ 
   palette: {
     light: '#C9E4EB',
     main: '#F1FAFC',
@@ -26,8 +25,6 @@ function Home() {
 
 
   return (
-
-    //OJOOOOOO, EN LAS PANTALLAS PEQUEÑAS HAY UN MARGEN A LA DRCHA. QUE NO PUEDO QUITAR!!! (en pantalla completa no sale)
 
     <ThemeProvider theme={theme}>
       <Box id="Home" style={BACKGROUND}>

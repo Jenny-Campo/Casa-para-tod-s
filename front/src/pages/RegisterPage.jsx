@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { signupService } from '../services/authService'
 import provinceService from '../services/provinceService';
 
-const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco / dark=azul osc. /contrastText= amarillo)
+const theme = createTheme({ 
     palette: {
       light: '#C9E4EB',
       main: '#F1FAFC',
@@ -22,14 +22,14 @@ const BACKGROUND = {
 
 const CARD = {         
     width: '900px',
-    margin: '20px auto', // 2 valores aplica ariba-abajo, y der.-izq.
+    margin: '20px auto', 
     display: 'flex',
     justify: 'center',
     align:'center',
     backgroundColor: '#F1FAFC'
 }
 
-const BUTTON1 = {                 // OJOOO, no consigo que quede alineado con el final del último cajón
+const BUTTON1 = {   
     backgroundColor: '#004A94',
     color: '#F7F9A7',
     borderRadius: 50
@@ -53,7 +53,6 @@ function RegisterPage() {
     const [smoker, setSmoker] = useState()
     const [pets, setPets] = useState()
     const [employment, setEmployment] = useState()
-    //const [photo, setPhoto] = useState()            --- ALVARO dice que lo dejemos sin hacer por ahora
     const [rules, setRules] = useState()
     const [roommate, setRoommate] = useState()
     
@@ -84,10 +83,10 @@ function RegisterPage() {
             const response = await signupService(user)
             
             if(response.error) {
-                alert('usuario o contraseña erróneo')  //OJO, HAY QUE HACER UN COMPONENTE PARA ESTO
+                alert('usuario o contraseña erróneo')
             } else {
                 localStorage.setItem('email', response.email)
-                localStorage.setItem('token', response.token)  // con esto tendríamos el token guardado
+                localStorage.setItem('token', response.token) 
                 navigate('/userMenu')
             }
 
@@ -102,7 +101,7 @@ function RegisterPage() {
         setProvince(e.target.value)
     }
 
-    const [provinces, setProvinces] = useState([]) //el conjunto de todas las provincias
+    const [provinces, setProvinces] = useState([]) 
 
     async function getAllProvinces() {
         setProvinces(await provinceService())
@@ -118,7 +117,7 @@ function RegisterPage() {
         <ThemeProvider theme={theme}>
             <Box style={BACKGROUND}>
             <Grid container>
-            <Grid item xs={12} md={12}> {/* preguntar como podemos hacer para que cambien los tamaños de las cosas cuando se hace más pequeña la pantalla */}
+            <Grid item xs={12} md={12}> 
                 <Card sx={CARD}>
                     <CardContent>
                         <CardHeader title="Crea tu perfil" sx={{backgroundColor: 'dark', color: 'constrastText', borderRadius: 1, marginBottom: '20px' }} />
@@ -284,7 +283,7 @@ function RegisterPage() {
                         />
 
                         <CardActions  color='succes'  sx={{display: 'flex', justify: 'end'}}>
-                            <Button variant="contained" sx={BUTTON1} onClick={() => register()}>  {/*component={Link} to="/userMenu"*/}
+                            <Button variant="contained" sx={BUTTON1} onClick={() => register()}>  
                                 Continuar
                             </Button>
                         </CardActions>

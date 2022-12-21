@@ -1,10 +1,10 @@
 import React from 'react'
-import { AppBar, Box, Container, Toolbar, Typography, Button, ThemeProvider, createTheme, Grid } from '@mui/material';
+import { AppBar, Box, Toolbar, Typography, Button, ThemeProvider, createTheme, Grid } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom'
 
-const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco / dark=azul osc. /contrastText= amarillo)
+const theme = createTheme({ 
   palette: {
     light: '#C9E4EB',
     main: '#F1FAFC',
@@ -18,10 +18,10 @@ function Header() {
     <ThemeProvider theme={theme}> 
       <Box id="box-header" sx={{ flexGrow: 1  }}>
         <Grid container>
-          <Grid item xs={12}>         {/* OJOOO, preguntar a Álvaro, por qué falla al meterle el md */}
+          <Grid item xs={12}>       
             <AppBar sx={{ backgroundColor: 'main', flexGrow: 1  }} position="sticky">
           <Grid item xs={12}>
-            <Toolbar> {/* menú de hamburguesa */}
+            <Toolbar> 
               <IconButton size="large" edge="start" aria-label="menu" sx={{ mr: 2, color: 'dark'}}>
                 <MenuIcon />
               </IconButton>

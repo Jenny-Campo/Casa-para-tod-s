@@ -4,7 +4,7 @@ import { Box, Card, CardContent,  CardActionArea, CardActions, CardMedia, Typogr
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco / dark=azul osc. /contrastText= amarillo)
+const theme = createTheme({ 
     palette: {
       light: '#C9E4EB',
       main: '#F1FAFC',
@@ -25,8 +25,7 @@ const CARD = {
     display: 'flex',
     borderRadius: 10,
     marginTop: '20px'
-    // align: 'center',
-    // justify: 'center',
+
 }
 
 function InfoAppPage() {
@@ -40,7 +39,7 @@ function InfoAppPage() {
 
             <CardContent>
             
-            <CardActionArea>    {/* ojoooo no consigo que la imagen sea responsive */}
+            <CardActionArea>  
                 <CardMedia
                 component="img"
                 height="500"

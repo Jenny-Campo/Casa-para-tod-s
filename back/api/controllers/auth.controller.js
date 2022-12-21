@@ -5,10 +5,7 @@ const bcrypt = require ('bcrypt')
 const jwt = require ('jsonwebtoken')
 
 async function signup (req, res) {
-  console.log('estoy funcionando bien')
-
     try {
-      console.log(req.body)
       req.body.password = bcrypt.hashSync(req.body.password, 10)
       const user = await User.create(req.body)
   

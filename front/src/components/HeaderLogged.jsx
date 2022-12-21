@@ -1,10 +1,10 @@
 import React from 'react'
-import { AppBar, Box, Container, Toolbar, Typography, Button, ThemeProvider, createTheme, Grid, IconButton } from '@mui/material';
+import { AppBar, Box, Toolbar, Typography, Button, ThemeProvider, createTheme, Grid, IconButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom'
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 
-const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco / dark=azul osc. /contrastText= amarillo)
+const theme = createTheme({
   palette: {
     light: '#C9E4EB',
     main: '#F1FAFC',
@@ -13,14 +13,14 @@ const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco 
   }
  })
 
-// pte. poner el el botón de inicia sesión, el link a la página:
+
 
 function Header() {
   return (
     <ThemeProvider theme={theme}> 
         <Box id="box-header" sx={{ flexGrow: 1  }}>
         <Grid container>
-        <Grid item xs={12}>         {/* OJOOO, preguntar a Álvaro, por qué falla al meterle el md */}
+        <Grid item xs={12}>         
             <AppBar sx={{ backgroundColor: 'main', flexGrow: 1  }} position="static">
             <Grid item xs={12}>
                 <Toolbar> 
@@ -28,7 +28,7 @@ function Header() {
                         <MenuIcon/>
                     </IconButton>
 
-                    <Typography component={Link} to="/" color="dark" variant="h4" sx={{ flexGrow: 1}}> {/* flexgrow es para que crezca a medida que aumenta la pantalla */}
+                    <Typography component={Link} to="/" color="dark" variant="h4" sx={{ flexGrow: 1}}> 
                         Casa para tod@s
                     </Typography>
 

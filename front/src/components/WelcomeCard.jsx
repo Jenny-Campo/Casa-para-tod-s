@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Button, Card, CardActions, CardActionArea, CardContent, CardMedia, Typography, createTheme, Grid } from '@mui/material';
 import { Link } from 'react-router-dom'
 
-const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco / dark=azul osc. /contrastText= amarillo)
+const theme = createTheme({ 
     palette: {
       light: '#C9E4EB',
       main: '#F1FAFC',
@@ -11,7 +11,7 @@ const theme = createTheme({ //paleta de colores (light=azul claro / main=blanco 
     }
    })
    
-const CARD = {  // ESTILADO DE LA CARD
+const CARD = {  
     width: 1000,
     backgroundColor: '#004A94',
     margin: '0 auto',
@@ -41,7 +41,7 @@ function WelcomeCard() {
           </Typography>
         </CardContent>
         
-        <CardActionArea>    {/* ojoooo no consigo que la imagen sea responsive */}
+        <CardActionArea>    
           <CardMedia
             component="img"
             height="500"

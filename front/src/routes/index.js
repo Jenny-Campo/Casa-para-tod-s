@@ -10,6 +10,7 @@ import OwnerProfile from '../pages/OwnerProfilePage'
 import UpdateOwnProfilePage from '../pages/UpdateOwnProfilePage'
 import CreateHouseAdPage from '../pages/CreateHouseAdPage'
 import GetOwnProfilePage from '../pages/GetOwnProfilePage'
+import GetOwnHouseAdPage from '../pages/GetOwnHouseAdPage'
 
 export const router = createBrowserRouter([
     {path: '/', element: <Home/>},
@@ -23,6 +24,6 @@ export const router = createBrowserRouter([
     {path:'/ownerprofile', element: <OwnerProfile/>},
     {path: '/getOwnProfile', element: <GetOwnProfilePage/> },
     {path: '/updateProfile', element: <UpdateOwnProfilePage/> },
-    {path: '/createHouseAd', element: <CreateHouseAdPage/> }
-    
+    {path: '/createHouseAd', element: <CreateHouseAdPage/> },
+    {path: '/getOwnHouseAd', element: <GetOwnHouseAdPage/> } 
 ])
