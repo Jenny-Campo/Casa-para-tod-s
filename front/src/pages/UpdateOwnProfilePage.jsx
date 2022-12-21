@@ -1,7 +1,6 @@
 import React from 'react';
 import { Box, Button, Card, CardActions, CardContent, CardHeader, TextField, createTheme, Grid, ThemeProvider  } from  '@mui/material/';
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import HeaderLogged from '../components/HeaderLogged';
 
 const theme = createTheme({ 
@@ -52,26 +51,24 @@ function UpdateOwnProfilePage() {
     const [roommate, setRoommate] = useState()
     
 
-    const navigate = useNavigate()
-
-    const profile = async () => {
-        const user = {
-            name,
-            surname,
-            age,
-            address,
-            location,
-            phoneNumber,
-            aboutYou,
-            lookingFor,
-            hobbies,
-            smoker,
-            pets,
-            employment, 
-            rules,
-            roommate
-        }
-    }
+    // const profile = async () => {
+    //     const user = {
+    //         name,
+    //         surname,
+    //         age,
+    //         address,
+    //         location,
+    //         phoneNumber,
+    //         aboutYou,
+    //         lookingFor,
+    //         hobbies,
+    //         smoker,
+    //         pets,
+    //         employment, 
+    //         rules,
+    //         roommate
+    //     }
+    // }
 
     return (
 
@@ -198,7 +195,7 @@ function UpdateOwnProfilePage() {
                         />
 
                         <CardActions  color='succes'  sx={{display: 'flex', justify: 'end'}}>
-                            <Button variant="contained" sx={BUTTON1} onClick={() => profile()}> 
+                            <Button variant="contained" sx={BUTTON1} > 
                                 Continuar
                             </Button>
                         </CardActions>

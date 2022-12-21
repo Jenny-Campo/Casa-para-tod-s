@@ -2,7 +2,6 @@ import React from 'react'
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import HouseAdList from '../components/HouseAdList';
-import { useNavigate } from 'react-router-dom'
 import { Box, Grid, ThemeProvider, createTheme } from '@mui/material';
 
 
@@ -16,8 +15,6 @@ const theme = createTheme({
  })
 
 function HouseAdPage() {
-
-const navigate = useNavigate()
   return (
     <div>
       <ThemeProvider theme={theme}>

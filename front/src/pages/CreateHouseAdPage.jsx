@@ -67,7 +67,7 @@ function CreateHouseAdPage() {
             description
         }
         
-        const response = await createHouseAdService(ad)
+        await createHouseAdService(ad)
         navigate('/userMenu')
 
     }
@@ -79,11 +79,14 @@ function CreateHouseAdPage() {
     
         const [provinces, setProvinces] = useState([]) 
     
-        async function getAllProvinces() {
-            setProvinces(await provinceService())
-        }
+
     
         useEffect(() => {
+            async function getAllProvinces() {
+                setProvinces(await provinceService())
+                console.log(provinces)
+            }
+
             getAllProvinces()
         }, []);
     

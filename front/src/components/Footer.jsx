@@ -12,7 +12,7 @@ const theme = createTheme({
    })
 
 function Footer() {
-    const [links, setLinks] = useState([
+    const [links] = useState([
         ['Contacto', 'Aviso Legal', 'Protección de datos', 'Política de cookies']
     ])
 
@@ -40,7 +40,7 @@ function Footer() {
                                 {title}
                             </Box> :
                             <Box key={idx} textAlign={'left'}>
-                                <a>{title}</a>
+                                {title}
                             </Box>)          
                         }
                         </Grid> 

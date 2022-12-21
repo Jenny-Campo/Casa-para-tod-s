@@ -23,13 +23,6 @@ const CARD = {
     borderRadius: 20
 }
 
-const SEARCHBUTTON = { 
-    marginBottom: '10px',
-    marginLeft: '20px',
-    backgroundColor: '#C9E4EB',
-    borderRadius: 1,
-    width: '600px'
-}
 
 const BUTTON1 = {                
     backgroundColor: '#004A94',
@@ -43,7 +36,6 @@ const BUTTON1 = {
 function SearchBar() {
 
     const [ searchTerm, setSearchTerm ] = useState('')
-    const [ searchResult, setSearchResult ] = useState([])
 
     const context = useContext(Context)
 

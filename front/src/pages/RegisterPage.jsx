@@ -1,5 +1,5 @@
 import {React, useEffect} from 'react';
-import { Box, Button, Card, CardActions, CardContent, CardHeader, TextField, Icons, createTheme, Grid, ThemeProvider, FormControl, InputLabel, Select, MenuItem  } from  '@mui/material/';
+import { Box, Button, Card, CardActions, CardContent, CardHeader, TextField, createTheme, Grid, ThemeProvider, FormControl, InputLabel, Select, MenuItem  } from  '@mui/material/';
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { signupService } from '../services/authService'

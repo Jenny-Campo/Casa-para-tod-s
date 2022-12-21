@@ -1,15 +1,7 @@
 import React from 'react'
-import { Box, Button, Card, CardActions, CardActionArea, CardContent, CardMedia, Typography, createTheme, Grid } from '@mui/material';
+import { Box, Button, Card, CardActions, CardActionArea, CardContent, CardMedia, Typography, Grid } from '@mui/material';
 import { Link } from 'react-router-dom'
 
-const theme = createTheme({ 
-    palette: {
-      light: '#C9E4EB',
-      main: '#F1FAFC',
-      dark: '#004A94',
-      constrastText: '#F7F9A7'
-    }
-   })
    
 const CARD = {  
     width: 1000,

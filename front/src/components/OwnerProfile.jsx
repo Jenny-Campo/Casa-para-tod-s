@@ -28,17 +28,17 @@ function OwnerProfile() {
     const [user, setUser] = useState({})
     const {id} = useParams('id')
 
-    const search = async() => {
-        await axios.get(`http://localhost:2222/api/user/profile/${id}`)
-        .then(response => {setUser(response.data)})
-        .catch(error => {
-            console.log(error)
-        })
-    }
-
     useEffect(() => {
+        const search = async() => {
+            await axios.get(`http://localhost:2222/api/user/profile/${id}`)
+            .then(response => {setUser(response.data)})
+            .catch(error => {
+                console.log(error)
+            })
+        }
+
         search()
-    },[])
+    },[id])
     
   return (
     <ThemeProvider theme={theme}>

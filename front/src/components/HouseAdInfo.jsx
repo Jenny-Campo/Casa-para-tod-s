@@ -29,17 +29,17 @@ function HouseAdInfo() {
   const [house, setHouse] = useState({})
   const {id} = useParams('id')
   
-  const search = async() => {
-    await axios.get(`http://localhost:2222/api/house/ad/${id}`)
-    .then(response => {setHouse(response.data)})
-    .catch(error => {
-      console.log(error)
-    })
-  }
-
   useEffect(() => {
+    const search = async() => {
+      await axios.get(`http://localhost:2222/api/house/ad/${id}`)
+      .then(response => {setHouse(response.data)})
+      .catch(error => {
+        console.log(error)
+      })
+    }
+
     search()
-  },[])
+  },[id])
 
   return (
     <ThemeProvider theme={theme}>
