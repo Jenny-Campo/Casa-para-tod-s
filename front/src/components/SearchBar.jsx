@@ -1,7 +1,7 @@
 import React, {useState, useContext} from 'react';
 import { Box, Button, Card, CardContent, CardHeader, TextField, ThemeProvider, createTheme, Grid } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import axios from 'axios';
+import { search } from '../services/searchService';
 import { Link } from 'react-router-dom'
 import { Context } from '../App';
 
@@ -47,13 +47,9 @@ function SearchBar() {
 
     const context = useContext(Context)
 
-    const search = async() => {
-        await axios.get(`http://localhost:2222/api/province/${searchTerm}`)
-        .then(response => {
-            context.setSearch(response.data);
-        }).catch(error => {
-            console.log(error)
-        })
+    const searchAds = async() => {
+        const data = await search(searchTerm)
+        context.setSearch(data);
     }
 
     const handleChange=e=>{
@@ -75,7 +71,7 @@ function SearchBar() {
                         sx={{ backgroundColor: 'light', flexGrow: 1 }}
                         onChange={handleChange} 
                         />
-                        <Button component={Link} to="/houseAd" variant="contained" size='large' endIcon={<SearchIcon />} sx={BUTTON1} onClick={() => search()}>Buscar </Button>
+                        <Button component={Link} to="/houseAd" variant="contained" size='large' endIcon={<SearchIcon />} sx={BUTTON1} onClick={() => searchAds()}>Buscar </Button>
                     </CardContent>
                 </Card>
             </CardContent>
