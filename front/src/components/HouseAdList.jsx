@@ -12,10 +12,11 @@ function listHouses() {
     <Grid item xs={2}>
       <HouseCard key={idx} 
         house={house} 
-        direcction={house.direcction} 
+        address={house.address} 
         location={house.location}
         description={house.description}
         rentalPrice={house.rentalPrice}
+        houseId={house.id}
       />
     </Grid>
   ) )

@@ -23,7 +23,7 @@ function Footer() {
                 <Container fluid="true">
                 <Grid container>
                 <Grid item xs={12} justify="center" align="center">
-                    <Card sx={{width:'150px'}} elevation="0">
+                    <Card sx={{width:'150px'}} elevation={0}>
                     <CardMedia
                         component="img"
                         image="/CasaParaTodosLogo.png"

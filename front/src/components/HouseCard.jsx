@@ -17,7 +17,7 @@ const theme = createTheme({
  })
 
 
-function HouseCard({location, direcction, description, rentalPrice}) {
+function HouseCard({houseId, location, address, description, rentalPrice}) {
   return (
     <ThemeProvider theme={theme}>
     <Card sx={{m:2,  width: '380px', height: '380px', position:'relative'}}>
@@ -29,7 +29,7 @@ function HouseCard({location, direcction, description, rentalPrice}) {
       />
       <CardContent>
         <Typography gutterBottom variant="h6" component="div" color="dark">
-          { location } , { direcction }
+          { location } , { address }
         </Typography>
         <Typography variant="body3" color="text.secondary">
           { description } 
@@ -39,7 +39,7 @@ function HouseCard({location, direcction, description, rentalPrice}) {
       <Typography variant="h6" sx={{color:'dark'}}>
           { rentalPrice }€/mes
           </Typography>
-        <Button component={Link} to="/houseInfo" size="sm" sx={{color:'dark'}}>
+        <Button component={Link} to={`/houseInfo/${houseId}`} size="sm" sx={{color:'dark'}}>
           Info
         </Button>
       </CardActions>
