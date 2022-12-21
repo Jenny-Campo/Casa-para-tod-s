@@ -84,7 +84,6 @@ function CreateHouseAdPage() {
         useEffect(() => {
             async function getAllProvinces() {
                 setProvinces(await provinceService())
-                console.log(provinces)
             }
 
             getAllProvinces()
