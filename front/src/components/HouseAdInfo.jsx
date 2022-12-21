@@ -70,7 +70,7 @@ function HouseAdInfo() {
             <Button variant="outlined">
               Enviar mensajes
             </Button>
-            <Button component={Link} to={`/ownerprofile/${id}`} variant="outlined" sx={{ marginLeft:'12px' }}>
+            <Button component={Link} to={`/ownerprofile/${house.userId}`} variant="outlined" sx={{ marginLeft:'12px' }}>
               Ver perfil del caser@
             </Button>
             </CardActions>
