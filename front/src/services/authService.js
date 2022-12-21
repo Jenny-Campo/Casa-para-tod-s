@@ -15,7 +15,7 @@ export const loginService = async (data) => {
         
         const result = await api.post('auth/login', data)
         
-        return result 
+        return result.data 
         
     } catch (error) {
         return { err: error }
