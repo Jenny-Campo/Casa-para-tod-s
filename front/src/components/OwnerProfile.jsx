@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Card, CardContent, CardMedia, Typography, createTheme, ThemeProvider, Grid } from '@mui/material'
-import axios from 'axios'
 import { useParams } from 'react-router'
+import { getOwnerProfile } from '../services/userService'
 
 const CARD = {  
     width: 1200,
@@ -30,11 +30,8 @@ function OwnerProfile() {
 
     useEffect(() => {
         const search = async() => {
-            await axios.get(`http://localhost:2222/api/user/profile/${id}`)
-            .then(response => {setUser(response.data)})
-            .catch(error => {
-                console.log(error)
-            })
+          const data = await getOwnerProfile(id)
+            setUser(data)
         }
 
         search()

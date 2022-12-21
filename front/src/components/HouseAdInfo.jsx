@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Card, ThemeProvider, createTheme, ImageList, ImageListItem, CardContent, Typography, Button, Grid, CardActions, CardMedia } from '@mui/material'
 import { Link, useParams } from 'react-router-dom'
-import axios from 'axios'
+import { getHouseAd } from '../services/houseService'
 
 const theme = createTheme({ 
   palette: {
@@ -30,12 +30,9 @@ function HouseAdInfo() {
   const {id} = useParams('id')
   
   useEffect(() => {
-    const search = async() => {
-      await axios.get(`http://localhost:2222/api/house/ad/${id}`)
-      .then(response => {setHouse(response.data)})
-      .catch(error => {
-        console.log(error)
-      })
+    const search = async () => {
+      const data = await getHouseAd(id)
+      setHouse(data)
     }
 
     search()

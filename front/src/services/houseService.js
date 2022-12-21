@@ -22,4 +22,14 @@ export const getOwnHouseAdService = async () => {
     }
 }
 
+export const getHouseAd = async (id) => {
+    try{
+        const { data } = await api.get(`house/ad/${id}`, { headers: { token: localStorage.getItem('token')}})
+        return data
+        
+    } catch (error) {
+        return { err: error }
+    }
+}
+
 

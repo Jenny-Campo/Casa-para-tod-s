@@ -3,7 +3,7 @@ import { Card, CardContent, CardMedia, CardActions, Button, Box, Typography, cre
 import HeaderLogged from '../components/HeaderLogged';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
-import getOwnProfile from '../services/userService';
+import { getOwnProfile } from '../services/userService';
 
 
 const theme = createTheme({ 

@@ -1,6 +1,6 @@
 import api from "./apiService"
 
-async function getOwnProfile() {
+ export async function getOwnProfile() {
 
     try{
         const { data } = await api.get('user/profile', { headers: { token: localStorage.getItem('token')}})
@@ -11,6 +11,15 @@ async function getOwnProfile() {
     }
 }
 
-export default getOwnProfile
+export async function getOwnerProfile() {
+    try{
+        const { data } = await api.get(`user/profile/${id}`, { headers: { token: localStorage.getItem('token')}})
+        return data
+        
+    } catch (error) {
+        return { err: error }
+    }
+}
+
 
 
